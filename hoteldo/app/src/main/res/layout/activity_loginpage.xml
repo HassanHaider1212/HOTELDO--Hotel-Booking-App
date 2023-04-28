@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle_gradient_s_bluegray_900_e_lime_300">
+
+
+        <LinearLayout
+            android:id="@+id/linearLoginPage"
+            style="@style/groupStyle_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageHotelsvgrepoc"
+                android:layout_width="@dimen/_173pxh"
+                android:layout_height="@dimen/_170pxh"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/_50pxh"
+                android:layout_marginTop="@dimen/_172pxv"
+                android:layout_marginEnd="@dimen/_50pxh"
+                android:scaleType="fitXY"
+                android:src="@drawable/img_hotelsvgrepoc"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/img_hotelsvgrepoc" />
+
+            <TextView
+                android:id="@+id/txtHOTELDO"
+                style="@style/txtMontserratromanbold36"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_50pxh"
+                android:layout_marginTop="@dimen/_13pxv"
+                android:layout_marginEnd="@dimen/_50pxh"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:singleLine="true"
+                android:text="@string/lbl_hoteldo"
+                tools:text="@string/lbl_hoteldo" />
+
+            <EditText
+                android:id="@+id/loginEmailinput"
+                style="@style/etSolidRounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_50pxh"
+                android:layout_marginTop="@dimen/_82pxv"
+                android:layout_marginEnd="@dimen/_49pxh"
+                android:background="@drawable/rectangle_bg_bluegray_900_aa_radius_15"
+                android:ellipsize="end"
+                android:hint="@string/lbl_email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/_24pxh"
+                android:paddingTop="@dimen/_14pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_14pxv"
+                android:singleLine="true"
+                android:textColorHint="@color/white_A700"
+                tools:ignore="Autofill" />
+
+            <EditText
+                android:id="@+id/loginPasswordinput"
+                style="@style/etSolidRounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_50pxh"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_marginEnd="@dimen/_49pxh"
+                android:background="@drawable/rectangle_bg_bluegray_900_aa_radius_15"
+                android:ellipsize="end"
+                android:hint="@string/lbl_password"
+                android:inputType="textPassword"
+                android:paddingStart="@dimen/_24pxh"
+                android:paddingTop="@dimen/_14pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_14pxv"
+                android:singleLine="true"
+                android:textColorHint="@color/white_A700"
+                tools:ignore="Autofill" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLogIn"
+                style="@style/btnSolidRounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_50pxh"
+                android:layout_marginTop="@dimen/_64pxv"
+                android:layout_marginEnd="@dimen/_49pxh"
+                android:layout_marginBottom="@dimen/_20pxv"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_7pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_7pxv"
+                android:singleLine="true"
+                android:text="@string/lbl_log_in"
+                android:textAllCaps="false"
+                tools:text="@string/lbl_log_in" />
+        </LinearLayout>
+    </ScrollView>
+</layout>

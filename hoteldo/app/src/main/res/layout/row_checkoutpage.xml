@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data/>
+    <LinearLayout android:gravity="start"
+        android:id="@+id/linearColumntax"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" android:orientation="vertical">
+        <FrameLayout android:id="@+id/frameStacktax"
+            android:layout_height="@dimen/_47pxv" android:layout_width="@dimen/_87pxh">
+            <TextView android:ellipsize="end" android:id="@+id/txtTax"
+                android:layout_gravity="bottom|start"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_width="wrap_content"
+                android:singleLine="true" android:text="@string/lbl_tax"
+                style="@style/txtMontserratromanbold20" tools:text="@string/lbl_tax"/>
+            <TextView android:ellipsize="end"
+                android:gravity="top|start"
+                android:id="@+id/txtNightsCounter"
+                android:layout_gravity="top|start"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@string/lbl_2_nights"
+                style="@style/txtMontserratromanbold20" tools:text="@string/lbl_2_nights"/>
+        </FrameLayout>
+        <TextView android:ellipsize="end" android:id="@+id/txtTotal"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:layout_marginTop="@dimen/_1pxv"
+            android:layout_width="match_parent"
+            android:singleLine="true" android:text="@string/lbl_total"
+            style="@style/txtMontserratromanbold20" tools:text="@string/lbl_total"/>
+    </LinearLayout>
+</layout>

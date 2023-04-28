@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data/>
+    <FrameLayout android:id="@+id/frameRoomlistitem"
+        android:layout_height="wrap_content" android:layout_width="match_parent">
+        <RadioButton android:buttonTint="@color/orange_A200"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat"
+            android:id="@+id/rbRoomA" android:layout_gravity="top|start"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10pxv"
+            android:layout_marginEnd="@dimen/_10pxh"
+            android:layout_width="wrap_content"
+            android:paddingBottom="@dimen/_6pxv"
+            android:paddingStart="@dimen/_30pxh"
+            android:singleLine="true" android:text="@string/lbl_room_a"
+            android:textColor="@color/white_A700"
+            android:textFontWeight="700"
+            android:textSize="@dimen/_20pxh" android:textStyle="bold" tools:text="@string/lbl_room_a"/>
+        <TextView android:ellipsize="end" android:gravity="top|start"
+            android:id="@+id/txtPrice"
+            android:layout_gravity="bottom|end"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10pxh"
+            android:layout_marginTop="@dimen/_10pxv"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:text="@string/lbl_20_per_night"
+            style="@style/txtMontserratromanregular14" tools:text="@string/lbl_20_per_night"/>
+    </FrameLayout>
+</layout>

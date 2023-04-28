@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/linearUsermessage"
+        style="@style/groupStylebluegray_900cornerRadius"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/SentMsgTime"
+            style="@style/txtMontserratromanregular12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/_18pxh"
+            android:layout_marginTop="@dimen/_10pxv"
+            android:layout_marginEnd="@dimen/_18pxh"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/lbl_9_00_pm"
+            tools:text="@string/lbl_9_00_pm" />
+
+        <TextView
+            android:id="@+id/SentMsgContent"
+            style="@style/txtMontserratromansemibold16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginStart="@dimen/_17pxh"
+            android:layout_marginTop="@dimen/_7pxv"
+            android:layout_marginEnd="@dimen/_17pxh"
+            android:layout_marginBottom="@dimen/_28pxv"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/lbl_message"
+            tools:text="@string/lbl_message" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

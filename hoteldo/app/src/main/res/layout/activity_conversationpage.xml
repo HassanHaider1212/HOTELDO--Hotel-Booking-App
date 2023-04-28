@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle_gradient_s_bluegray_900_e_lime_300">
+
+        <TextView
+            android:id="@+id/ConversationHotelName"
+            style="@style/txtMontserratromanbold40"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_18pxv"
+            android:layout_marginTop="@dimen/_36pxv"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/lbl_hotel_abc2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/lbl_hotel_abc2" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_18pxv"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ConversationHotelName" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <EditText
+                android:id="@+id/ConversationMessageinput"
+                style="@style/etSolidRounded_3"
+                android:layout_width="@dimen/_257pxh"
+                android:layout_height="@dimen/_61pxh"
+                android:layout_marginStart="@dimen/_18pxh"
+                android:layout_marginTop="@dimen/_45pxv"
+                android:layout_marginEnd="@dimen/_10pxh"
+                android:layout_marginBottom="@dimen/_21pxv"
+                android:background="@drawable/rectangle_bg_bluegray_900_radius_15"
+                android:ellipsize="end"
+                android:hint="@string/lbl_enter_message"
+                android:inputType="text"
+                android:paddingStart="@dimen/_17pxh"
+                android:paddingTop="@dimen/_22pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_19pxv"
+                android:singleLine="true"
+                android:textColorHint="@color/white_A700"
+                tools:ignore="Autofill" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btnConversationSend"
+                android:layout_width="@dimen/_60pxh"
+                android:layout_height="@dimen/_60pxh"
+                android:layout_gravity="bottom|end"
+                android:layout_marginTop="@dimen/_21pxv"
+                android:layout_marginEnd="@dimen/_14pxh"
+                android:layout_marginBottom="@dimen/_21pxv"
+                android:backgroundTint="@color/orange_A200"
+                android:src="@drawable/img_send"
+                app:fabCustomSize="@dimen/_60pxh"
+                app:tint="@color/bluegray_900" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

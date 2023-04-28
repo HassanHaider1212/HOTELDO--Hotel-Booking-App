@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle_gradient_s_bluegray_900_e_lime_300">
+
+        <LinearLayout
+            android:id="@+id/linearFavouritesPage"
+            style="@style/groupStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_18pxh"
+            android:layout_marginTop="@dimen/_34pxv"
+            android:layout_marginEnd="@dimen/_22pxh"
+            android:layout_marginBottom="@dimen/_13pxv"
+            android:background="#00FFFFFF"
+            android:gravity="start"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearColumnfavorites"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:gravity="start"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtFavorites"
+                    style="@style/txtMontserratromanbold48"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10pxh"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@string/lbl_favorites"
+                    tools:text="@string/lbl_favorites" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fav_hotels_listing_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_550pxv"
+                    android:layout_marginTop="@dimen/_47pxv" />
+
+            </LinearLayout>
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/favouritesnavbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_bg_orange_a200_radius_12_5"
+                app:menu="@menu/bottom_nav" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>

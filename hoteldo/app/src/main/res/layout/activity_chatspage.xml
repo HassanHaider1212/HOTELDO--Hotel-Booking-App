@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle_gradient_s_bluegray_900_e_lime_300">
+
+        <TextView
+            android:id="@+id/txtConversations"
+            style="@style/txtMontserratromanbold44"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10pxh"
+            android:layout_marginTop="@dimen/_38pxv"
+            android:layout_marginEnd="@dimen/_13pxh"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="@string/lbl_conversations"
+            tools:text="@string/lbl_conversations" />
+
+        <LinearLayout
+            android:id="@+id/linearChatsPage"
+            style="@style/groupStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_18pxh"
+            android:layout_marginTop="@dimen/_100pxv"
+            android:layout_marginEnd="@dimen/_22pxh"
+            android:layout_marginBottom="@dimen/_13pxv"
+            android:background="#00FFFFFF"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/conversations_recycler_view"
+                android:layout_width="@dimen/_335pxv"
+                android:layout_height="@dimen/_635pxv"
+                android:layout_marginTop="@dimen/_8pxv">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/navbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle_bg_orange_a200_radius_12_5"
+                app:menu="@menu/bottom_nav" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

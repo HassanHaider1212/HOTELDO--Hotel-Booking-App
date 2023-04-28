@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout android:gravity="start"
+        android:id="@+id/linearCheckoutPage"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStyle">
+        <TextView android:ellipsize="end"
+            android:id="@+id/txtHotelDetails"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_18pxh"
+            android:layout_marginStart="@dimen/_18pxh"
+            android:layout_marginTop="@dimen/_34pxv"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:text="@string/lbl_hotel_details"
+            style="@style/txtMontserratromanbold40" tools:text="@string/lbl_hotel_details"/>
+        <LinearLayout android:gravity="start"
+            android:id="@+id/linearPurchasedetail"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_13pxh"
+            android:layout_marginStart="@dimen/_13pxh"
+            android:layout_marginTop="@dimen/_21pxv"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylebluegray_900_c1cornerRadius">
+            <TextView android:ellipsize="end"
+                android:id="@+id/txtPurchasedhotelname"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_29pxh"
+                android:layout_marginStart="@dimen/_29pxh"
+                android:layout_marginTop="@dimen/_28pxv"
+                android:layout_width="match_parent"
+                android:singleLine="true"
+                android:text="@string/lbl_hotel_abc2"
+                style="@style/txtMontserratromanbold32" tools:text="@string/lbl_hotel_abc2"/>
+            <LinearLayout android:id="@+id/linearRowrooma"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_22pxv"
+                android:layout_marginEnd="@dimen/_29pxh"
+                android:layout_marginStart="@dimen/_29pxh"
+                android:layout_marginTop="@dimen/_27pxv"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtPurchasedroomname"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.42"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@string/lbl_room_a"
+                    style="@style/txtMontserratromanregular20" tools:text="@string/lbl_room_a"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtPurchasedroomprice"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_3pxv"
+                    android:layout_marginStart="@dimen/_72pxh"
+                    android:layout_marginTop="@dimen/_1pxv"
+                    android:layout_weight="0.58"
+                    android:layout_width="0dp" android:singleLine="true"
+                    android:text="@string/lbl_20_per_night"
+                    style="@style/txtMontserratromanregular16" tools:text="@string/lbl_20_per_night"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:ellipsize="end"
+            android:id="@+id/txtGuestDetails"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_18pxh"
+            android:layout_marginStart="@dimen/_18pxh"
+            android:layout_marginTop="@dimen/_19pxv"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:text="@string/lbl_guest_details"
+            style="@style/txtMontserratromanbold40" tools:text="@string/lbl_guest_details"/>
+        <LinearLayout android:gravity="center_horizontal"
+            android:id="@+id/linearColumnguestname"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_13pxh"
+            android:layout_marginStart="@dimen/_13pxh"
+            android:layout_marginTop="@dimen/_21pxv"
+            android:layout_width="match_parent"
+            android:orientation="vertical" style="@style/groupStylebluegray_900_c1cornerRadius">
+
+            <EditText
+                android:id="@+id/etGuestname"
+                style="@style/etSolidRounded_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21pxh"
+                android:layout_marginTop="@dimen/_25pxv"
+                android:layout_marginEnd="@dimen/_21pxh"
+                android:background="@drawable/rectangle_bg_bluegray_900_radius_15"
+                android:ellipsize="end"
+                android:hint="User Name"
+                android:inputType="text"
+                android:paddingStart="@dimen/_14pxh"
+                android:paddingTop="@dimen/_9pxv"
+                android:paddingBottom="@dimen/_9pxv"
+                android:singleLine="true"
+                android:textColorHint="@color/white"
+                tools:ignore="Autofill" />
+
+            <EditText
+                android:id="@+id/etGuestemail"
+                style="@style/etSolidRounded_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_21pxh"
+                android:layout_marginTop="@dimen/_11pxv"
+                android:layout_marginEnd="@dimen/_21pxh"
+                android:background="@drawable/rectangle_bg_bluegray_900_radius_15"
+                android:ellipsize="end"
+                android:hint="E-Mail"
+                android:inputType="text"
+                android:paddingStart="@dimen/_14pxh"
+                android:paddingTop="@dimen/_8pxv"
+                android:paddingBottom="@dimen/_10pxv"
+                android:singleLine="true"
+                android:textColorHint="@color/white"
+                tools:ignore="Autofill" />
+            <LinearLayout android:gravity="start"
+                android:id="@+id/linearRowarrivalDate"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_22pxv"
+                android:layout_marginEnd="@dimen/_21pxh"
+                android:layout_marginStart="@dimen/_21pxh"
+                android:layout_marginTop="@dimen/_10pxv"
+                android:layout_width="match_parent" android:orientation="horizontal">
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtArrivalDate"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp"
+                    android:paddingBottom="@dimen/_13pxv"
+                    android:paddingEnd="@dimen/_22pxh"
+                    android:paddingStart="@dimen/_19pxh"
+                    android:paddingTop="@dimen/_13pxv"
+                    android:singleLine="true"
+                    android:text="@string/lbl_arrival_date"
+                    style="@style/txtSolidRounded_5" tools:text="@string/lbl_arrival_date"/>
+                <TextView android:ellipsize="end"
+                    android:id="@+id/txtDeparturedate"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10pxh"
+                    android:layout_weight="0.5"
+                    android:layout_width="0dp"
+                    android:paddingBottom="@dimen/_11pxv"
+                    android:paddingEnd="@dimen/_4pxh"
+                    android:paddingStart="@dimen/_5pxh"
+                    android:paddingTop="@dimen/_15pxv"
+                    android:singleLine="true"
+                    android:text="@string/lbl_departure_date"
+                    style="@style/txtSolidRounded_5" tools:text="@string/lbl_departure_date"/>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:ellipsize="end" android:id="@+id/txtPayment"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_13pxh"
+            android:layout_marginStart="@dimen/_13pxh"
+            android:layout_marginTop="@dimen/_18pxv"
+            android:layout_width="match_parent"
+            android:singleLine="true" android:text="@string/lbl_payment"
+            style="@style/txtMontserratromanbold40" tools:text="@string/lbl_payment"/>
+        <FrameLayout android:id="@+id/frameTotalbillview"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_120pxv"
+            android:layout_marginEnd="@dimen/_13pxh"
+            android:layout_marginStart="@dimen/_13pxh"
+            android:layout_marginTop="@dimen/_15pxv"
+            android:layout_width="@dimen/_322pxh" style="@style/groupStylebluegray_900_c1cornerRadius">
+
+            <TextView
+                android:id="@+id/nightsBooked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_8pxh"
+                android:fontFamily="@font/montserrat"
+                android:text="2 Nights"
+                android:textColor="@color/white_A700"
+                android:textSize="@dimen/_20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nightsBookedTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_210pxh"
+                android:layout_marginTop="@dimen/_8pxh"
+                android:fontFamily="@font/montserrat"
+                android:text="$40"
+                android:textColor="@color/white_A700"
+                android:textSize="@dimen/_20sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/taxBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_32pxh"
+                android:fontFamily="@font/montserrat"
+                android:text="Tax"
+                android:textColor="@color/white_A700"
+                android:textSize="@dimen/_20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/taxTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_210pxh"
+                android:layout_marginTop="@dimen/_32pxh"
+                android:fontFamily="@font/montserrat"
+                android:text="$10"
+                android:textColor="@color/white_A700"
+                android:textSize="@dimen/_20sp"
+                android:textStyle="normal" />
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_20pxh"
+                android:layout_marginTop="@dimen/_56pxh"
+                android:fontFamily="@font/montserrat"
+                android:text="Total"
+                android:textColor="@color/white_A700"
+                android:textSize="@dimen/_20sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/totalBill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_210pxh"
+                android:layout_marginTop="@dimen/_56pxh"
+                android:fontFamily="@font/montserrat"
+                android:text="$50"
+                android:textColor="@color/white_A700"
+                android:textSize="@dimen/_20sp"
+                android:textStyle="normal" />
+        </FrameLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btnCheckout"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_60pxv"
+            android:layout_marginBottom="@dimen/_22pxv"
+            android:layout_marginEnd="@dimen/_13pxh"
+            android:layout_marginStart="@dimen/_13pxh"
+            android:layout_marginTop="@dimen/_19pxv"
+            android:layout_width="@dimen/_261pxh"
+            android:paddingBottom="@dimen/_4pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_4pxv" android:singleLine="true"
+            android:text="@string/lbl_checkout"
+            android:textAllCaps="false" style="@style/btnSolidRounded_1" tools:text="@string/lbl_checkout"/>
+
+    </LinearLayout>
+
+    </ScrollView>
+</layout>

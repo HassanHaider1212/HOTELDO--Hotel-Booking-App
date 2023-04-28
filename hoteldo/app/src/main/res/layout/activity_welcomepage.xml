@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearWelcomePage"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStyle">
+        <ImageView android:id="@+id/imageHotelsvgrepoc"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_170pxh"
+            android:layout_marginEnd="@dimen/_53pxh"
+            android:layout_marginStart="@dimen/_53pxh"
+            android:layout_marginTop="@dimen/_172pxv"
+            android:layout_width="@dimen/_173pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_hotelsvgrepoc"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_hotelsvgrepoc"/>
+        <TextView android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:id="@+id/txtHOTELDO"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_53pxh"
+            android:layout_marginStart="@dimen/_53pxh"
+            android:layout_marginTop="@dimen/_13pxv"
+            android:layout_width="match_parent"
+            android:singleLine="true" android:text="@string/lbl_hoteldo"
+            style="@style/txtMontserratromanbold36" tools:text="@string/lbl_hoteldo"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btnLogIn_startup"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_46pxh"
+            android:layout_marginStart="@dimen/_53pxh"
+            android:layout_marginTop="@dimen/_77pxv"
+            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/_7pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_7pxv" android:singleLine="true"
+            android:text="@string/lbl_log_in"
+            android:textAllCaps="false" style="@style/btnSolidRounded" tools:text="@string/lbl_log_in"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btnCreateAccount"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:layout_marginEnd="@dimen/_46pxh"
+            android:layout_marginStart="@dimen/_53pxh"
+            android:layout_marginTop="@dimen/_37pxv"
+            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/_7pxv"
+            android:paddingEnd="@dimen/_19pxh"
+            android:paddingStart="@dimen/_14pxh"
+            android:paddingTop="@dimen/_7pxv" android:singleLine="true"
+            android:text="@string/lbl_create_account"
+            android:textAllCaps="false" style="@style/btnSolidRounded" tools:text="@string/lbl_create_account"/>
+    </LinearLayout>
+</layout>

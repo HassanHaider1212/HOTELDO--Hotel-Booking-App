@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectangle_gradient_s_bluegray_900_e_lime_300">
+
+        <LinearLayout
+            android:id="@+id/frameHomePage"
+            style="@style/groupStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_18pxh"
+            android:layout_marginTop="@dimen/_12pxv"
+            android:layout_marginEnd="@dimen/_22pxh"
+            android:layout_marginBottom="@dimen/_13pxv"
+            android:background="#00FFFFFF"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearColumntrash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_marginBottom="@dimen/_10pxv"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_1pxh"
+                    android:gravity="center_horizontal"
+                    app:contentInsetStart="0dp">
+
+                    <LinearLayout
+                        android:id="@+id/linearRowtrash"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imageTrash"
+                            android:layout_width="@dimen/_46pxh"
+                            android:layout_height="@dimen/_45pxh"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/img_trash"
+                            tools:ignore="ContentDescription"
+                            tools:src="@drawable/img_trash" />
+
+                        <EditText
+                            android:id="@+id/etSearchbar"
+                            style="@style/etSolidRounded_1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_17pxh"
+                            android:layout_marginTop="@dimen/_4pxv"
+                            android:layout_weight="0.85"
+                            android:background="@drawable/rectangle_bg_bluegray_900_radius_15"
+                            android:drawableEnd="@drawable/img_globe"
+                            android:drawablePadding="@dimen/_30pxh"
+                            android:ellipsize="end"
+                            android:hint="@string/lbl_search"
+                            android:inputType="text"
+                            android:paddingStart="@dimen/_20pxh"
+                            android:paddingTop="@dimen/_10pxv"
+                            android:paddingEnd="@dimen/_17pxh"
+                            android:paddingBottom="@dimen/_12pxv"
+                            android:singleLine="true"
+                            android:textColorHint="@color/white_A700"
+                            tools:ignore="Autofill" />
+                    </LinearLayout>
+                </androidx.appcompat.widget.Toolbar>
+
+                <Spinner
+                    android:id="@+id/spinnerFilters"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_46pxv"
+                    android:background="@drawable/layer_list_bg_bluegray_900_e0_radius_15"
+                    android:dropDownSelector="@drawable/rectangle_bg_bluegray_900_radius_15"
+                    android:entries="@array/spinner_items"
+                    android:prompt="@string/spinner_prompt"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/montserrat"
+                    android:textColorHint="@color/white_A700"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mainpageHotelsview"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_550pxv"
+                    android:layout_marginTop="@dimen/_26pxv" />
+
+            </LinearLayout>
+
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/homenavbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_bg_orange_a200_radius_12_5"
+                app:menu="@menu/bottom_nav" />
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+</layout>
