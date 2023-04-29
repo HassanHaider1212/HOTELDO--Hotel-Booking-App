@@ -26,34 +26,46 @@
             android:layout_width="match_parent"
             android:singleLine="true" android:text="@string/lbl_hoteldo"
             style="@style/txtMontserratromanbold36" tools:text="@string/lbl_hoteldo"/>
+
         <androidx.appcompat.widget.AppCompatButton
-            android:ellipsize="end" android:gravity="center"
             android:id="@+id/btnLogIn_startup"
+            style="@style/btnSolidRounded"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_46pxh"
             android:layout_marginStart="@dimen/_53pxh"
             android:layout_marginTop="@dimen/_77pxv"
-            android:layout_width="match_parent"
-            android:paddingBottom="@dimen/_7pxv"
-            android:paddingEnd="@dimen/_30pxh"
-            android:paddingStart="@dimen/_30pxh"
-            android:paddingTop="@dimen/_7pxv" android:singleLine="true"
-            android:text="@string/lbl_log_in"
-            android:textAllCaps="false" style="@style/btnSolidRounded" tools:text="@string/lbl_log_in"/>
-        <androidx.appcompat.widget.AppCompatButton
-            android:ellipsize="end" android:gravity="center"
-            android:id="@+id/btnCreateAccount"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_20pxv"
             android:layout_marginEnd="@dimen/_46pxh"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:onClick="LoginButton"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_7pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingBottom="@dimen/_7pxv"
+            android:singleLine="true"
+            android:text="@string/lbl_log_in"
+            android:textAllCaps="false"
+            tools:text="@string/lbl_log_in" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCreateAccount"
+            style="@style/btnSolidRounded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_53pxh"
             android:layout_marginTop="@dimen/_37pxv"
-            android:layout_width="match_parent"
-            android:paddingBottom="@dimen/_7pxv"
-            android:paddingEnd="@dimen/_19pxh"
+            android:layout_marginEnd="@dimen/_46pxh"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:onClick="SignUpButton"
             android:paddingStart="@dimen/_14pxh"
-            android:paddingTop="@dimen/_7pxv" android:singleLine="true"
+            android:paddingTop="@dimen/_7pxv"
+            android:paddingEnd="@dimen/_19pxh"
+            android:paddingBottom="@dimen/_7pxv"
+            android:singleLine="true"
             android:text="@string/lbl_create_account"
-            android:textAllCaps="false" style="@style/btnSolidRounded" tools:text="@string/lbl_create_account"/>
+            android:textAllCaps="false"
+            tools:text="@string/lbl_create_account" />
     </LinearLayout>
 </layout>

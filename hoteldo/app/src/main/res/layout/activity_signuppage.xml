@@ -103,7 +103,7 @@
                 tools:ignore="Autofill" />
 
             <EditText
-                android:id="@+id/signupDobinput"
+                android:id="@+id/signupPhoneNumber"
                 style="@style/etSolidRounded"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -112,7 +112,27 @@
                 android:layout_marginEnd="@dimen/_47pxh"
                 android:background="@drawable/rectangle_bg_bluegray_900_aa_radius_15"
                 android:ellipsize="end"
-                android:hint="@string/lbl_date_of_birth"
+                android:hint="@string/lbl_phone_number"
+                android:inputType="text"
+                android:paddingStart="@dimen/_28pxh"
+                android:paddingTop="@dimen/_14pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_14pxv"
+                android:singleLine="true"
+                android:textColorHint="@color/white_A700"
+                tools:ignore="Autofill" />
+
+            <EditText
+                android:id="@+id/signupCNIC"
+                style="@style/etSolidRounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_47pxh"
+                android:layout_marginTop="@dimen/_17pxv"
+                android:layout_marginEnd="@dimen/_47pxh"
+                android:background="@drawable/rectangle_bg_bluegray_900_aa_radius_15"
+                android:ellipsize="end"
+                android:hint="CNIC"
                 android:inputType="text"
                 android:paddingStart="@dimen/_28pxh"
                 android:paddingTop="@dimen/_14pxv"
@@ -133,6 +153,7 @@
                 android:layout_marginBottom="@dimen/_20pxv"
                 android:ellipsize="end"
                 android:gravity="center"
+                android:onClick="SignUpSubmitButton"
                 android:paddingStart="@dimen/_30pxh"
                 android:paddingTop="@dimen/_7pxv"
                 android:paddingEnd="@dimen/_30pxh"

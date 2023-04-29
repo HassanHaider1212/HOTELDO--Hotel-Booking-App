@@ -94,6 +94,7 @@
                 android:layout_marginBottom="@dimen/_20pxv"
                 android:ellipsize="end"
                 android:gravity="center"
+                android:onClick="LoginSubmitButton"
                 android:paddingStart="@dimen/_30pxh"
                 android:paddingTop="@dimen/_7pxv"
                 android:paddingEnd="@dimen/_30pxh"
