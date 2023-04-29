@@ -1,6 +1,8 @@
 package com.hoteldo.app;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -9,8 +11,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homepage);
-        Toast.makeText(this, "Modified by hassan", Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.activity_loginpage);
+
+
+        startActivity(new Intent(getApplicationContext(),HomepageActivity.class));
     }
 
 }
