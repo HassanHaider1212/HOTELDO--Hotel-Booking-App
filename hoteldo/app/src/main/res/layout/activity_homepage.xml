@@ -18,7 +18,7 @@
             android:layout_marginEnd="@dimen/_20pxh"
             android:layout_marginBottom="@dimen/_13pxv"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/favouritesnavbar"
+            app:layout_constraintBottom_toTopOf="@+id/homenavbar"
             app:layout_constraintTop_toTopOf="parent">
             <LinearLayout
                 android:id="@+id/linearColumntrash"
@@ -97,7 +97,7 @@
             </LinearLayout>
         </LinearLayout>
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/favouritesnavbar"
+            android:id="@+id/homenavbar"
             android:layout_width="@dimen/_320pxh"
             android:layout_height="@dimen/_51pxh"
             android:layout_marginLeft="@dimen/_20pxh"
