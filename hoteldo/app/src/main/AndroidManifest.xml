@@ -24,6 +24,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomepageActivity"></activity>
+        <activity android:name=".FavouritespageActivity"></activity>
+        <activity android:name=".OrderhistorypageActivity"></activity>
+        <activity android:name=".ProfilepageActivity"></activity>
     </application>
 
 </manifest>
