@@ -5,6 +5,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:windowSoftInputMode="adjustNothing"
         android:background="@drawable/rectangle_gradient_s_bluegray_900_e_lime_300">
 
         <LinearLayout
