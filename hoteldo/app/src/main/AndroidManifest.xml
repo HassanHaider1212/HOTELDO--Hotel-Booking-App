@@ -15,10 +15,14 @@
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
+<<<<<<< Updated upstream
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
+=======
+            android:name=".Detailspage_Activity"
+>>>>>>> Stashed changes
             android:exported="false" />
         <activity
             android:name=".MainActivity"

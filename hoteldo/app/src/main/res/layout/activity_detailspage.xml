@@ -68,7 +68,7 @@
                     android:gravity="start"
                     android:scaleType="fitXY"
                     tools:ignore="ContentDescription"
-                    tools:src="@drawable/img_hotelimage" />
+                    android:src="@drawable/img_hotelimage" />
 
                 <LinearLayout
                     android:id="@+id/linearColumnlanguage"

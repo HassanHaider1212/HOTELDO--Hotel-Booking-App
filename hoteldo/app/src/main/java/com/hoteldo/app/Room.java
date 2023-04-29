@@ -17,7 +17,6 @@ public class Room {
         roomID = UUID.randomUUID().toString();
     }
 
-
     public String getRoomID() {
         return roomID;
     }
