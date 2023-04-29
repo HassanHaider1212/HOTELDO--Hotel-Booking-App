@@ -27,6 +27,7 @@ public class Order {
         placedOn = new Date();
         int days = (int) TimeUnit.MILLISECONDS.toDays(departureDate.getTime() - arrivalDate.getTime()) % 365;
         // total = room.getprice*days
+        //set room availability to false
     }
 
     public String getUserID() {

@@ -7,11 +7,13 @@ public class Room {
     private String hotelID;
     private float price;
     private String name;
+    private Boolean availability;
 
-    public Room(String hotelID, float price, String name) {
+    public Room(String hotelID, float price, String name, Boolean availability) {
         this.hotelID = hotelID;
         this.price = price;
         this.name = name;
+        this.availability = availability;
         roomID = UUID.randomUUID().toString();
     }
 
@@ -46,5 +48,13 @@ public class Room {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Boolean getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(Boolean availability) {
+        this.availability = availability;
     }
 }
