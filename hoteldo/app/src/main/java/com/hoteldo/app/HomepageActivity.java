@@ -10,11 +10,34 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class HomepageActivity extends AppCompatActivity {
+    private static ArrayList<Hotel> hotels;
+    private static ArrayList<Room> rooms;
+    private static ArrayList<FavouriteHotel> favouriteHotels;
+    private static ArrayList<Order> orders;
     private static String message = "hello";
     public static String getMessage(){
         return message;
     }
+
+    public static ArrayList<Hotel> getHotels(){
+        return hotels;
+    }
+
+    public static ArrayList<Room> getRooms() {
+        return rooms;
+    }
+
+    public static ArrayList<FavouriteHotel> getFavouriteHotels() {
+        return favouriteHotels;
+    }
+
+    public static ArrayList<Order> getOrders() {
+        return orders;
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
