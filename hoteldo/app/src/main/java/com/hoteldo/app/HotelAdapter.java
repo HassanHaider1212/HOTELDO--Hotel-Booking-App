@@ -51,7 +51,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         }
         holder.hotelPrice.setText("From $" + Float.toString(min));
 
-        String[] address = hotel.getAddress().split(",", 1);
+        String[] address = hotel.getAddress().split(",");
         holder.hotelLocation.setText(address[0]);
         holder.hotelCity.setText(address[1]);
         holder.hotelRating.setText(Float.toString(hotel.getRatings()));
@@ -76,7 +76,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
 
         public HotelViewHolder(@NonNull View itemView) {
             super(itemView);
-            hotelimage = (ImageView) itemView.findViewById(R.id.hotel_image);
+            //hotelimage = (ImageView) itemView.findViewById(R.id.hotel_image);
             hotelName = (TextView)itemView.findViewById(R.id.hotel_name);
             hotelCity = (TextView)itemView.findViewById(R.id.hotel_city);
             hotelLocation = (TextView)itemView.findViewById(R.id.hotel_location);

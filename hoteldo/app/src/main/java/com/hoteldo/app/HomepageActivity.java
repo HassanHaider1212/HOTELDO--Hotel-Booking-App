@@ -7,16 +7,18 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
 public class HomepageActivity extends AppCompatActivity {
-    private static ArrayList<Hotel> hotels;
-    private static ArrayList<Room> rooms;
-    private static ArrayList<FavouriteHotel> favouriteHotels;
-    private static ArrayList<Order> orders;
+    private static ArrayList<Hotel> hotels= new ArrayList<>();
+    private static ArrayList<Room> rooms= new ArrayList<>();
+    private static ArrayList<FavouriteHotel> favouriteHotels= new ArrayList<>();
+    private static ArrayList<Order> orders= new ArrayList<>();
     private static String message = "hello";
     public static String getMessage(){
         return message;
@@ -37,6 +39,11 @@ public class HomepageActivity extends AppCompatActivity {
     public static ArrayList<Order> getOrders() {
         return orders;
     }
+
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,5 +75,19 @@ public class HomepageActivity extends AppCompatActivity {
                 return false;
             }
         });
+        
+
+        recyclerView = (RecyclerView) findViewById(R.id.mainpageHotelsview);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new HotelAdapter(hotels);
+        recyclerView.setAdapter(adapter);
+
+        // dummy data for testing
+        hotels.add(new Hotel("Hotel One", "Faisal Town,Lahore Pakistan", "hotelone@test.com", 4.5f, null));
+        hotels.add(new Hotel("Hotel Two", "DHA Phase V,Lahore Pakistan", "hoteltwo@test.com", 4.8f, null));
+
+        adapter.notifyDataSetChanged();
     }
 }
