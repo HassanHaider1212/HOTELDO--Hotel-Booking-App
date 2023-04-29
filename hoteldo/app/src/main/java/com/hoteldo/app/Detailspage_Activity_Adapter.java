@@ -32,6 +32,7 @@ public class Detailspage_Activity_Adapter extends RecyclerView.Adapter<Detailspa
         if (getItemViewType(position) == 0) {
             holder.room_item_name.setText(localDataSet.get(position).getName());
             String Price = Float.toString(localDataSet.get(position).getPrice());
+            Price="$"+Price+" per Night";
             holder.room_item_price.setText(Price);
         }
     }
