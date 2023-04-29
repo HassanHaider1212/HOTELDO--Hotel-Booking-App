@@ -37,6 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_10pxh"
+                    android:layout_marginTop="@dimen/_18pxh"
                     android:ellipsize="end"
                     android:singleLine="true"
                     android:text="@string/lbl_favorites"

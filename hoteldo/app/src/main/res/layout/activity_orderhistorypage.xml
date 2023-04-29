@@ -17,10 +17,10 @@
             android:layout_marginLeft="@dimen/_20pxv"
             android:ellipsize="end"
             android:singleLine="true"
-            android:text="Orders"
+            android:text="Recent Orders"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="11dp"
-            tools:text="Order History" />
+            tools:text="Recent Orders" />
 
         <LinearLayout
             android:id="@+id/linearHistoryPage"
