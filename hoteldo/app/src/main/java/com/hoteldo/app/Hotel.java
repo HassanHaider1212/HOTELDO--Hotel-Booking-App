@@ -8,6 +8,7 @@ public class Hotel {
     private float ratings;
     private String address;
     private String email;
+    private String imageURL;
 
 
     public Hotel(){
@@ -17,11 +18,12 @@ public class Hotel {
         email = "";
         ratings = 0.0f;
     }
-    public Hotel(String name, String address, String email, float ratings){
+    public Hotel(String name, String address, String email, float ratings, String imageURL){
         this.name = name;
         this.address = address;
         this.ratings = ratings;
         this.email = email;
+        this.imageURL = imageURL;
         hotelID = UUID.randomUUID().toString();
     }
 
@@ -63,5 +65,13 @@ public class Hotel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }
