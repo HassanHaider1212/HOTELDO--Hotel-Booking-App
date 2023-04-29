@@ -17,7 +17,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
 
     private static ArrayList<Hotel> hotels;
     private static ArrayList<Room> totalrooms;
-    
+
     private static ArrayList<FavouriteHotel> favouriteHotels;
     private static ArrayList<Room> rooms=new ArrayList<>();
     private static Hotel hotel;
