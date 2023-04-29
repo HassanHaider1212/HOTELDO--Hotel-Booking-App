@@ -23,12 +23,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomepageActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
-        <activity android:name=".FavouritespageActivity"></activity>
-        <activity android:name=".OrderhistorypageActivity"></activity>
-        <activity android:name=".ProfilepageActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".HomepageActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".FavouritespageActivity" />
+        <activity android:name=".OrderhistorypageActivity" />
+        <activity
+            android:name=".ProfilepageActivity"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>
