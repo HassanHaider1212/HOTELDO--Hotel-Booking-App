@@ -11,7 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomepageActivity extends AppCompatActivity {
-
+    private static String message = "hello";
+    public static String getMessage(){
+        return message;
+    }
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
