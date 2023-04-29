@@ -15,7 +15,7 @@ public class OrderhistorypageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_orderhistorypage);
 
         BottomNavigationView navbar = (BottomNavigationView) findViewById(R.id.orderhistory_navbar);
-        navbar.setSelectedItemId(R.id.nav_favourite);
+        navbar.setSelectedItemId(R.id.nav_orderhistory);
 
         navbar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
