@@ -11,7 +11,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class FavouritespageActivity extends AppCompatActivity {
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favouritespage);
