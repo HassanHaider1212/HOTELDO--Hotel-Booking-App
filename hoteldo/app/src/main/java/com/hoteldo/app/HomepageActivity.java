@@ -7,10 +7,43 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomepageActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class HomepageActivity extends AppCompatActivity implements HotelAdapter.HotelClickListener {
+    private static ArrayList<Hotel> hotels= new ArrayList<>();
+    private static ArrayList<Room> rooms= new ArrayList<>();
+    private static ArrayList<FavouriteHotel> favouriteHotels= new ArrayList<>();
+    private static ArrayList<Order> orders= new ArrayList<>();
+    private static String message = "hello";
+    public static String getMessage(){
+        return message;
+    }
+
+    public static ArrayList<Hotel> getHotels(){
+        return hotels;
+    }
+
+    public static ArrayList<Room> getRooms() {
+        return rooms;
+    }
+
+    public static ArrayList<FavouriteHotel> getFavouriteHotels() {
+        return favouriteHotels;
+    }
+
+    public static ArrayList<Order> getOrders() {
+        return orders;
+    }
+
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,5 +75,31 @@ public class HomepageActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
+        recyclerView = (RecyclerView) findViewById(R.id.mainpageHotelsview);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new HotelAdapter(this, hotels);
+        recyclerView.setAdapter(adapter);
+
+        // dummy data for testing
+        hotels.add(new Hotel("Hotel One", "Faisal Town,Lahore Pakistan", "hotelone@test.com", 4.5f, null));
+        hotels.add(new Hotel("Hotel Two", "DHA Phase V,Lahore Pakistan", "hoteltwo@test.com", 4.8f, null));
+
+        rooms.add(new Room(hotels.get(0).getHotelID(), 12.99f, "Economy Suite", true));
+        rooms.add(new Room(hotels.get(0).getHotelID(), 22.99f, "Luxury Suite", true));
+        rooms.add(new Room(hotels.get(1).getHotelID(), 15.99f, "Gold Suite", true));
+        rooms.add(new Room(hotels.get(1).getHotelID(), 30.99f, "Platinum Suite", true));
+
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClick(String id) {
+        Intent i = new Intent(getApplicationContext(), Detailspage_Activity.class);
+        i.putExtra("hotelID", id);
+        startActivity(i);
     }
 }

@@ -3,6 +3,7 @@ package com.hoteldo.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ public class FavouritespageActivity extends AppCompatActivity {
 
         BottomNavigationView navbar = (BottomNavigationView) findViewById(R.id.favouritesnavbar);
         navbar.setSelectedItemId(R.id.nav_favourite);
+        Toast.makeText(getApplicationContext(), HomepageActivity.getMessage(), Toast.LENGTH_LONG).show();
 
         navbar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
