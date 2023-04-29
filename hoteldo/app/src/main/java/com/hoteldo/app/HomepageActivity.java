@@ -14,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class HomepageActivity extends AppCompatActivity {
+public class HomepageActivity extends AppCompatActivity implements HotelAdapter.HotelClickListener {
     private static ArrayList<Hotel> hotels= new ArrayList<>();
     private static ArrayList<Room> rooms= new ArrayList<>();
     private static ArrayList<FavouriteHotel> favouriteHotels= new ArrayList<>();
@@ -75,13 +75,13 @@ public class HomepageActivity extends AppCompatActivity {
                 return false;
             }
         });
-        
+
 
         recyclerView = (RecyclerView) findViewById(R.id.mainpageHotelsview);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new HotelAdapter(hotels);
+        adapter = new HotelAdapter(this, hotels);
         recyclerView.setAdapter(adapter);
 
         // dummy data for testing
@@ -89,5 +89,12 @@ public class HomepageActivity extends AppCompatActivity {
         hotels.add(new Hotel("Hotel Two", "DHA Phase V,Lahore Pakistan", "hoteltwo@test.com", 4.8f, null));
 
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClick(String id) {
+        Intent i = new Intent(getApplicationContext(), Detailspage_Activity.class);
+        i.putExtra("hotelID", id);
+        startActivity(i);
     }
 }

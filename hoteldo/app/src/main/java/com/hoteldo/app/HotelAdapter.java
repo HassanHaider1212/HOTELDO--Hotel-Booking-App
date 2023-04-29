@@ -1,5 +1,7 @@
 package com.hoteldo.app;
 
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +17,14 @@ import java.util.ArrayList;
 
 public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHolder>{
     private ArrayList<Hotel> hotels;
-
-    public HotelAdapter(ArrayList<Hotel> hotels){
+    //private Context context;
+    private HotelClickListener listener;
+    public interface HotelClickListener{
+        public void onClick(String id);
+    }
+    public HotelAdapter(HotelClickListener ctx, ArrayList<Hotel> hotels){
         this.hotels = hotels;
+        listener = ctx;
     }
     public void setHotels(ArrayList<Hotel> hotels){
         this.hotels = hotels;
@@ -76,12 +83,20 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
 
         public HotelViewHolder(@NonNull View itemView) {
             super(itemView);
-            //hotelimage = (ImageView) itemView.findViewById(R.id.hotel_image);
+            hotelimage = (ImageView) itemView.findViewById(R.id.hotel_image);
             hotelName = (TextView)itemView.findViewById(R.id.hotel_name);
             hotelCity = (TextView)itemView.findViewById(R.id.hotel_city);
             hotelLocation = (TextView)itemView.findViewById(R.id.hotel_location);
             hotelRating = (TextView)itemView.findViewById(R.id.hotel_rating);
             hotelPrice = (TextView)itemView.findViewById(R.id.hotel_price);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int index = getAdapterPosition();
+                    String hotelID = hotels.get(index).getHotelID();
+                    listener.onClick(hotelID);
+                }
+            });
         }
     }
 }
