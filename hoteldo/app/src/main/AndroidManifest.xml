@@ -23,10 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomepageActivity"></activity>
+        <activity android:name=".HomepageActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".FavouritespageActivity"></activity>
         <activity android:name=".OrderhistorypageActivity"></activity>
-        <activity android:name=".ProfilepageActivity"></activity>
+        <activity android:name=".ProfilepageActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>
