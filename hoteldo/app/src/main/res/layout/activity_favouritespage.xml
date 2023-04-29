@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/rectangle_gradient_s_bluegray_900_e_lime_300">
@@ -12,14 +12,16 @@
             android:id="@+id/linearFavouritesPage"
             style="@style/groupStyle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/_18pxh"
-            android:layout_marginTop="@dimen/_34pxv"
-            android:layout_marginEnd="@dimen/_22pxh"
-            android:layout_marginBottom="@dimen/_13pxv"
+            android:layout_height="0dp"
             android:background="#00FFFFFF"
             android:gravity="start"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/_20pxv"
+            android:layout_marginTop="@dimen/_20pxv"
+            android:layout_marginRight="@dimen/_20pxv"
+            android:layout_marginBottom="@dimen/_10pxv"
+            app:layout_constraintBottom_toTopOf="@+id/favouritesnavbar"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:id="@+id/linearColumnfavorites"
@@ -47,12 +49,18 @@
                     android:layout_marginTop="@dimen/_47pxv" />
 
             </LinearLayout>
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/favouritesnavbar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rectangle_bg_orange_a200_radius_12_5"
-                app:menu="@menu/bottom_nav" />
         </LinearLayout>
-    </FrameLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/favouritesnavbar"
+            android:layout_width="@dimen/_320pxh"
+            android:layout_height="@dimen/_51pxh"
+            android:layout_marginLeft="@dimen/_20pxh"
+            android:layout_marginBottom="@dimen/_13pxh"
+            android:background="@drawable/rectangle_bg_orange_a200_radius_12_5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_nav" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
