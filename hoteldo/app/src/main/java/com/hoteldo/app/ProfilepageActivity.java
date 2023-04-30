@@ -34,7 +34,7 @@ public class ProfilepageActivity extends AppCompatActivity {
         String FullName=FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
         String FirstName= FullName.substring(0,FullName.indexOf(' '));
 
-        HiName.setText("Hi ," + FirstName);
+        HiName.setText("Hi , " + FirstName);
         name.setText(FullName);
         email.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 

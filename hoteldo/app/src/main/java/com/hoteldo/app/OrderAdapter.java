@@ -12,9 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHolder>{
-    ArrayList<Order> localDataset;
+    ArrayList<Order> orders ;
+
     public OrderAdapter(ArrayList<Order> orders) {
-        localDataset = orders;
+        this.orders = orders;
+
     }
 
     @NonNull
@@ -27,16 +29,36 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
 
     @Override
     public void onBindViewHolder(@NonNull OrderAdapter.OrderViewHolder holder, int position) {
-        Order order = localDataset.get(position);
-        holder.Datee.setText(order.getArrivalDate().toString());
-        holder.RoomName.setText(order.getRoomID());
+        Order order = orders.get(position);
+        ArrayList<Hotel> allHotel =HomepageActivity.getHotels();
+        ArrayList<Room> allRoom= HomepageActivity.getRooms();
+        holder.Datee.setText(order.getPlacedOnString());
+        Hotel tempH = new Hotel();
+        for (Hotel hot : allHotel) {
+            if (hot.getHotelID() == order.getHotelID()) {
+                tempH = hot;
+                break;
+            }
+        }
+        holder.HotelName.setText(tempH.getName());
+        Room tempRoom = null;
+        for (Room roo : allRoom)
+        {
+            if(roo.getRoomID() == order.getRoomID())
+            {
+                tempRoom = roo;
+            }
+        }
+        holder.RoomName.setText(tempRoom.getName());
+        holder.Price.setText(String.valueOf( order.getTotal() ));
+        
 
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return orders.size();
     }
 
     public class OrderViewHolder extends RecyclerView.ViewHolder{
