@@ -76,9 +76,9 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
         });
 
         hotels.clear();
-        favouriteHotels.clear();
+        //favouriteHotels.clear();
         rooms.clear();
-        orders.clear();
+        //orders.clear();
         recyclerView = (RecyclerView) findViewById(R.id.mainpageHotelsview);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
