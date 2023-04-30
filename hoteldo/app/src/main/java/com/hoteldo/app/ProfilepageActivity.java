@@ -30,7 +30,9 @@ public class ProfilepageActivity extends AppCompatActivity {
         LogoutButton = findViewById(R.id.btnprofileSave);
         HiName = findViewById(R.id.profileUserName);
         String FullName=FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-        String FirstName= FullName.substring(0,FullName.indexOf(' '));
+        String[] parts = FullName.split(" ");
+        String FirstName= parts[0];
+
 
         HiName.setText("Hi , " + FirstName);
         name.setText(FullName);
