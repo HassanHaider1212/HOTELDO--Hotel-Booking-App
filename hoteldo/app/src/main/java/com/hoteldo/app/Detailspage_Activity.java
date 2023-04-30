@@ -27,6 +27,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
     TextView details_hoteladdress;
     TextView details_hotelcity;
     Button details_btnfavourite;
+    Button details_btnmessage;
     ImageView details_Hotelimage;
     Detailspage_Activity_Adapter ad;
     RecyclerView recyclerView;
@@ -88,13 +89,21 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
         details_btnfavourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //create favourite object and add the hotel_id and userid.
                 Toast.makeText(Detailspage_Activity.this, "Favourite Hotel!", Toast.LENGTH_SHORT).show();
                 favouriteHotels=HomepageActivity.getFavouriteHotels();
                 FavouriteHotel fav = new FavouriteHotel(userID, hotelId);
                 favouriteHotels.add(fav);
             }
         });
+
+        details_btnmessage=findViewById(R.id.details_btnmessage);
+        details_btnmessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Detailspage_Activity.this, "Gmail intent!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override

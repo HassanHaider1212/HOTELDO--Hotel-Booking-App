@@ -91,6 +91,7 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
         hotels.add(new Hotel("Hotel Two", "DHA Phase V,Lahore Pakistan", "hoteltwo@test.com", 4.8f, null));
 
         favouriteHotels.add(new FavouriteHotel("zainwajid33@gmail.com", hotels.get(0).getHotelID()));
+
         rooms.add(new Room(hotels.get(0).getHotelID(), 12.99f, "Economy Suite", true));
         rooms.add(new Room(hotels.get(0).getHotelID(), 22.99f, "Luxury Suite", true));
         rooms.add(new Room(hotels.get(1).getHotelID(), 15.99f, "Gold Suite", true));
