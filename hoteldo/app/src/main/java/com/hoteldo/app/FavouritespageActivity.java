@@ -38,15 +38,12 @@ public class FavouritespageActivity extends AppCompatActivity implements HotelAd
                         return true;
                     case R.id.nav_home:
                         startActivity(new Intent(getApplicationContext(),HomepageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_orderhistory:
                         startActivity(new Intent(getApplicationContext(),OrderhistorypageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_profile:
                         startActivity(new Intent(getApplicationContext(),ProfilepageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;

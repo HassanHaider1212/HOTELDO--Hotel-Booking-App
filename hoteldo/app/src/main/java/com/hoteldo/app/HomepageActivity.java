@@ -61,17 +61,14 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
                 {
                     case R.id.nav_favourite:
                         startActivity(new Intent(getApplicationContext(),FavouritespageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_home:
                         return true;
                     case R.id.nav_orderhistory:
                         startActivity(new Intent(getApplicationContext(),OrderhistorypageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_profile:
                         startActivity(new Intent(getApplicationContext(),ProfilepageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;

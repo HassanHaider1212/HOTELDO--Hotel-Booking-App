@@ -20,9 +20,7 @@ public class ProfilepageActivity extends AppCompatActivity {
 
     TextView name;
     TextView email;
-
     TextView HiName;
-
     Button LogoutButton;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,15 +46,12 @@ public class ProfilepageActivity extends AppCompatActivity {
                 {
                     case R.id.nav_favourite:
                         startActivity(new Intent(getApplicationContext(),FavouritespageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_home:
                         startActivity(new Intent(getApplicationContext(),HomepageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_orderhistory:
                         startActivity(new Intent(getApplicationContext(),OrderhistorypageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_profile:
                         return true;
@@ -70,7 +65,9 @@ public class ProfilepageActivity extends AppCompatActivity {
     {
         FirebaseAuth.getInstance().signOut();
         Toast.makeText(this, "User Logged Out", Toast.LENGTH_SHORT).show();
-        startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
         finish();
     }
 

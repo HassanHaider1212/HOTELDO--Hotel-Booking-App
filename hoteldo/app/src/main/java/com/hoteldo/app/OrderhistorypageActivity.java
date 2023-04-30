@@ -57,17 +57,14 @@ public class OrderhistorypageActivity extends AppCompatActivity {
                 {
                     case R.id.nav_favourite:
                         startActivity(new Intent(getApplicationContext(),FavouritespageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_home:
                         startActivity(new Intent(getApplicationContext(),HomepageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                     case R.id.nav_orderhistory:
                         return true;
                     case R.id.nav_profile:
                         startActivity(new Intent(getApplicationContext(),ProfilepageActivity.class));
-                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;
