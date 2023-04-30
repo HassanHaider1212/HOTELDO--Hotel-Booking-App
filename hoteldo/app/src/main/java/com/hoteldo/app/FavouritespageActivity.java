@@ -7,11 +7,20 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class FavouritespageActivity extends AppCompatActivity {
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
+public class FavouritespageActivity extends AppCompatActivity implements HotelAdapter.HotelClickListener {
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
+    private ArrayList<FavouriteHotel> favourites;
+    private ArrayList<Hotel> favouriteHotels = new ArrayList<>();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favouritespage);
@@ -43,5 +52,29 @@ public class FavouritespageActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        favourites = HomepageActivity.getFavouriteHotels();
+        ArrayList<Hotel> hotels = HomepageActivity.getHotels();
+        for (FavouriteHotel fv:favourites) {
+            for (Hotel h : hotels) {
+                if (h.getHotelID().equals(fv.getHotelID())){
+                    favouriteHotels.add(h);
+                }
+            }
+        }
+
+        recyclerView = (RecyclerView) findViewById(R.id.fav_hotels_listing_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new HotelAdapter(this, favouriteHotels);
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onClick(String id) {
+        Intent i = new Intent(getApplicationContext(), Detailspage_Activity.class);
+        i.putExtra("hotelID", id);
+        startActivity(i);
     }
 }
