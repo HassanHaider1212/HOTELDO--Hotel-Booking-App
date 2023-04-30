@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -31,8 +32,15 @@ public class OrderhistorypageActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
-        OrderAdapter adapter = new OrderAdapter(HomepageActivity.getOrders());
+        ArrayList<Order> allOrders = HomepageActivity.getOrders();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        String uID = auth.getCurrentUser().getEmail();
+        for (Order o: allOrders) {
+            if (o.getUserID().equals(uID)){
+                orders.add(o);
+            }
+        }
+        OrderAdapter adapter = new OrderAdapter(orders);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

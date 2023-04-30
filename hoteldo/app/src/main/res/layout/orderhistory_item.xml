@@ -8,7 +8,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="@dimen/_15pxv"
+        android:layout_marginRight="@dimen/_15pxv"
+        android:layout_marginBottom="@dimen/_15pxv"
         android:background="@drawable/rectangle_bg_bluegray_900_radius_15"
         android:orientation="vertical"
         android:paddingTop="10dp"
@@ -22,6 +24,7 @@
             android:id="@+id/orderhistoryitem_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_15pxv"
             android:fontFamily="@font/montserrat"
             android:padding="5dp"
             android:paddingLeft="20dp"

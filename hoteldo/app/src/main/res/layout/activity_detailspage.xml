@@ -155,7 +155,7 @@
             style="@style/groupStylebluegray_900_c1cornerRadius"
             itemSpace="@{@dimen/_25pxh}"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/_235pxv"
             android:layout_marginStart="@dimen/_18pxh"
             android:layout_marginTop="@dimen/_11pxv"
             android:layout_marginEnd="@dimen/_18pxh"

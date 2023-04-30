@@ -35,7 +35,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         holder.Datee.setText(order.getPlacedOnString());
         Hotel tempH = new Hotel();
         for (Hotel hot : allHotel) {
-            if (hot.getHotelID() == order.getHotelID()) {
+            if (hot.getHotelID().equals(order.getHotelID())) {
                 tempH = hot;
                 break;
             }
@@ -44,7 +44,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         Room tempRoom = null;
         for (Room roo : allRoom)
         {
-            if(roo.getRoomID() == order.getRoomID())
+            if(roo.getRoomID().equals(order.getRoomID()))
             {
                 tempRoom = roo;
             }

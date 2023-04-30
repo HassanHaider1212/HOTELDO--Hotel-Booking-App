@@ -28,6 +28,14 @@ public class Order {
         int days = (int) TimeUnit.MILLISECONDS.toDays(departureDate.getTime() - arrivalDate.getTime()) % 365;
         // total = room.getprice*days
         //set room availability to false
+        float nightPrice = 0.0f;
+        for (Room r:HomepageActivity.getRooms()) {
+            if (r.getRoomID().equals(roomID)){
+                nightPrice = r.getPrice();
+                break;
+            }
+        }
+        total = days*nightPrice;
     }
 
     public String getUserID() {
