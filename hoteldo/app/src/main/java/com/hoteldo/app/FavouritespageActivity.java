@@ -11,9 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class FavouritespageActivity extends AppCompatActivity implements HotelAdapter.HotelClickListener {
     private RecyclerView recyclerView;
@@ -21,6 +24,7 @@ public class FavouritespageActivity extends AppCompatActivity implements HotelAd
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<FavouriteHotel> favourites;
     private ArrayList<Hotel> favouriteHotels = new ArrayList<>();
+    FirebaseAuth auth;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favouritespage);
@@ -49,12 +53,13 @@ public class FavouritespageActivity extends AppCompatActivity implements HotelAd
                 return false;
             }
         });
-
+        auth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = auth.getCurrentUser();
         favourites = HomepageActivity.getFavouriteHotels();
         ArrayList<Hotel> hotels = HomepageActivity.getHotels();
         for (FavouriteHotel fv:favourites) {
             for (Hotel h : hotels) {
-                if (h.getHotelID().equals(fv.getHotelID())){
+                if (h.getHotelID().equals(fv.getHotelID()) && Objects.equals(auth.getCurrentUser().getEmail(), fv.getUserID())){
                     favouriteHotels.add(h);
                 }
             }
