@@ -35,7 +35,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <EditText
+                <TextView
                     android:id="@+id/profileNameinput"
                     style="@style/etSolidRounded"
                     android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                     android:textColorHint="@color/white_A700"
                     tools:ignore="Autofill" />
 
-                <EditText
+                <TextView
                     android:id="@+id/profileEmailinput"
                     style="@style/etSolidRounded"
                     android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                     android:textColorHint="@color/white_A700"
                     tools:ignore="Autofill" />
 
-                <EditText
+                <TextView
                     android:id="@+id/profileNumberinput"
                     style="@style/etSolidRounded"
                     android:layout_width="match_parent"
@@ -95,27 +95,7 @@
                     android:textColorHint="@color/white_A700"
                     tools:ignore="Autofill" />
 
-                <EditText
-                    android:id="@+id/profileDobinput"
-                    style="@style/etSolidRounded"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_18pxh"
-                    android:layout_marginTop="@dimen/_20pxv"
-                    android:layout_marginEnd="@dimen/_18pxh"
-                    android:background="@drawable/rectangle_bg_bluegray_900_aa_radius_15"
-                    android:ellipsize="end"
-                    android:hint="@string/lbl_date_of_birth"
-                    android:inputType="text"
-                    android:paddingStart="@dimen/_29pxh"
-                    android:paddingTop="@dimen/_18pxv"
-                    android:paddingEnd="@dimen/_30pxh"
-                    android:paddingBottom="@dimen/_23pxv"
-                    android:singleLine="true"
-                    android:textColorHint="@color/white_A700"
-                    tools:ignore="Autofill" />
-
-                <EditText
+                <TextView
                     android:id="@+id/profileCnicinput"
                     style="@style/etSolidRounded"
                     android:layout_width="match_parent"

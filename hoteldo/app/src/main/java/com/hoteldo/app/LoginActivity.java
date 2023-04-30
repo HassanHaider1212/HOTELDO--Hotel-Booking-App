@@ -66,9 +66,10 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "User Authorized", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),HomepageActivity.class));
                             finish();
+
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, ""+task.getException(),
                                     Toast.LENGTH_SHORT).show();
 
                         }

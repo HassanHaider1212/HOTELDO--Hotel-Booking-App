@@ -16,12 +16,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.net.PasswordAuthentication;
 
 public class SignUpActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
+    //FirebaseUser firebaseUser;
     EditText nameField;
     EditText emailField;
     EditText passwordField;
@@ -81,8 +84,15 @@ public class SignUpActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             Toast.makeText(SignUpActivity.this, "User Created", Toast.LENGTH_SHORT).show();
-                            //FirebaseUser user= mAuth.getCurrentUser();
+                            FirebaseUser user= mAuth.getCurrentUser();
                             //startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                            UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder().setDisplayName(name)
+                                    .build();
+                            user.updateProfile(profileChangeRequest);
+                            
+
+
+
                             nameField.setText("");
                             emailField.setText("");
                             passwordField.setText("");
@@ -91,8 +101,9 @@ public class SignUpActivity extends AppCompatActivity {
                             mAuth.signOut();
 
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(SignUpActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+
+
+                            Toast.makeText(SignUpActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
 
                         }
                     }
