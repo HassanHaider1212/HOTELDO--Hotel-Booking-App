@@ -126,6 +126,10 @@ public class Checkoutpage_Activity extends AppCompatActivity {
                                     }
                                     else{
                                         Toast.makeText(Checkoutpage_Activity.this, "Must: Arrival Date < Departure Date!", Toast.LENGTH_SHORT).show();
+                                        nightsBooked.setText("Nights");
+                                        nightsBookedTotal.setText("$");
+                                        taxTotal.setText("$");
+                                        totalBill.setText("$");
                                     }
                                 }
                                 else{
@@ -194,6 +198,10 @@ public class Checkoutpage_Activity extends AppCompatActivity {
                                     }
                                     else{
                                         Toast.makeText(Checkoutpage_Activity.this, "Must: Arrival Date < Departure Date!", Toast.LENGTH_SHORT).show();
+                                        nightsBooked.setText("Nights");
+                                        nightsBookedTotal.setText("$");
+                                        taxTotal.setText("$");
+                                        totalBill.setText("$");
                                     }
                                 }
                                 else{
