@@ -200,14 +200,12 @@ public class Checkoutpage_Activity extends AppCompatActivity {
         
         // checkout button
         btnCheckout = findViewById(R.id.btnCheckout);
-        Date finalArrivalDate = arrivalDate;
-        Date finalDepartureDate = departureDate;
         btnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(Checkoutpage_Activity.this, "Checkout Successful!", Toast.LENGTH_SHORT).show();
                 Orders = HomepageActivity.getOrders();
-                Order order = new Order(currentUser.getUid(),hotel.getHotelID(),room.getRoomID(), finalArrivalDate, finalDepartureDate, currentUser.getEmail(),currentUser.getDisplayName());
+                Order order = new Order(currentUser.getUid(),hotel.getHotelID(),room.getRoomID(), arrivalDate, departureDate, currentUser.getEmail(),currentUser.getDisplayName());
                 Orders.add(order);
             }
         });
