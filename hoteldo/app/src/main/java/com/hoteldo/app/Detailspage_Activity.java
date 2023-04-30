@@ -96,6 +96,8 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
 
     @Override
     public void onClick() {
+        Intent intent = new Intent(getApplicationContext(), Checkoutpage_Activity.class);
+        startActivity(intent);
         Toast.makeText(this, "Checkoutpage!", Toast.LENGTH_SHORT).show();
     }
 }
