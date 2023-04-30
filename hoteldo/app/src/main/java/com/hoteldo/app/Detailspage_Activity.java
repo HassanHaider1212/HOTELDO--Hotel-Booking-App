@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -31,6 +35,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
     ImageView details_Hotelimage;
     Detailspage_Activity_Adapter ad;
     RecyclerView recyclerView;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +105,18 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
         details_btnmessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Detailspage_Activity.this, "Gmail intent!", Toast.LENGTH_SHORT).show();
+                mAuth = FirebaseAuth.getInstance();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                String recipient = hotel.getEmail();
+                String sender = currentUser.getEmail();
+                Uri uri = Uri.parse("mailto:" + recipient + "?subject=Subject&body=&from=" + sender);
+                Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                } else {
+                    // If no email app is found, prompt user to install one
+                    Toast.makeText(Detailspage_Activity.this, "No email app found", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
