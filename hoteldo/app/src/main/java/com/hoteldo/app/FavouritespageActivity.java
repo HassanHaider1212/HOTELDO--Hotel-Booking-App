@@ -16,7 +16,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class FavouritespageActivity extends AppCompatActivity implements HotelAdapter.HotelClickListener {
     private RecyclerView recyclerView;
@@ -31,7 +30,7 @@ public class FavouritespageActivity extends AppCompatActivity implements HotelAd
 
         BottomNavigationView navbar = (BottomNavigationView) findViewById(R.id.favouritesnavbar);
         navbar.setSelectedItemId(R.id.nav_favourite);
-        Toast.makeText(getApplicationContext(), HomepageActivity.getMessage(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), HomepageActivity.getMessage(), Toast.LENGTH_LONG).show();
 
         navbar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -59,7 +58,7 @@ public class FavouritespageActivity extends AppCompatActivity implements HotelAd
         ArrayList<Hotel> hotels = HomepageActivity.getHotels();
         for (FavouriteHotel fv:favourites) {
             for (Hotel h : hotels) {
-                if (h.getHotelID().equals(fv.getHotelID()) && Objects.equals(auth.getCurrentUser().getEmail(), fv.getUserID())){
+                if (h.getHotelID().equals(fv.getHotelID()) && auth.getCurrentUser().getEmail().equals(fv.getUserID())){
                     favouriteHotels.add(h);
                 }
             }

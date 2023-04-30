@@ -41,7 +41,8 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailspage);
-
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
         // Get the hotel id from homepage using intent.
         Intent intent = getIntent();
         String hotelId = intent.getStringExtra("hotelID");
@@ -96,7 +97,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
             public void onClick(View view) {
                 Toast.makeText(Detailspage_Activity.this, "Favourite Hotel!", Toast.LENGTH_SHORT).show();
                 favouriteHotels=HomepageActivity.getFavouriteHotels();
-                FavouriteHotel fav = new FavouriteHotel(userID, hotelId);
+                FavouriteHotel fav = new FavouriteHotel(currentUser.getEmail(), hotelId);
                 favouriteHotels.add(fav);
             }
         });
@@ -105,8 +106,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
         details_btnmessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mAuth = FirebaseAuth.getInstance();
-                FirebaseUser currentUser = mAuth.getCurrentUser();
+
                 String recipient = hotel.getEmail();
                 String sender = currentUser.getEmail();
                 Uri uri = Uri.parse("mailto:" + recipient + "?subject=Subject&body=&from=" + sender);
