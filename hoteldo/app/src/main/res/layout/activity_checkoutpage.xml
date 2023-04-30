@@ -128,31 +128,35 @@
                 android:layout_marginStart="@dimen/_21pxh"
                 android:layout_marginTop="@dimen/_10pxv"
                 android:layout_width="match_parent" android:orientation="horizontal">
-                <EditText android:ellipsize="end"
+
+                <EditText
                     android:id="@+id/txtArrivalDate"
+                    style="@style/txtSolidRounded_5"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:layout_width="0dp"
-                    android:paddingBottom="@dimen/_13pxv"
-                    android:paddingEnd="@dimen/_22pxh"
+                    android:ellipsize="end"
+                    android:hint="@string/lbl_arrival_date"
                     android:paddingStart="@dimen/_19pxh"
                     android:paddingTop="@dimen/_13pxv"
-                    android:singleLine="true"
-                    android:text="@string/lbl_arrival_date"
-                    style="@style/txtSolidRounded_5" tools:text="@string/lbl_arrival_date"/>
-                <EditText android:ellipsize="end"
+                    android:paddingEnd="@dimen/_22pxh"
+                    android:paddingBottom="@dimen/_13pxv"
+                    android:singleLine="true" />
+
+                <EditText
                     android:id="@+id/txtDeparturedate"
+                    style="@style/txtSolidRounded_5"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10pxh"
                     android:layout_weight="0.5"
-                    android:layout_width="0dp"
-                    android:paddingBottom="@dimen/_11pxv"
-                    android:paddingEnd="@dimen/_4pxh"
+                    android:ellipsize="end"
+                    android:hint="@string/lbl_departure_date"
                     android:paddingStart="@dimen/_5pxh"
                     android:paddingTop="@dimen/_15pxv"
-                    android:singleLine="true"
-                    android:text="@string/lbl_departure_date"
-                    style="@style/txtSolidRounded_5" tools:text="@string/lbl_departure_date"/>
+                    android:paddingEnd="@dimen/_4pxh"
+                    android:paddingBottom="@dimen/_11pxv"
+                    android:singleLine="true" />
             </LinearLayout>
         </LinearLayout>
         <TextView android:ellipsize="end" android:id="@+id/txtPayment"
@@ -178,7 +182,7 @@
                 android:layout_marginLeft="@dimen/_20pxh"
                 android:layout_marginTop="@dimen/_8pxh"
                 android:fontFamily="@font/montserrat"
-                android:text="2 Nights"
+                android:text="Nights"
                 android:textColor="@color/white_A700"
                 android:textSize="@dimen/_20sp"
                 android:textStyle="bold" />
@@ -190,7 +194,7 @@
                 android:layout_marginLeft="@dimen/_210pxh"
                 android:layout_marginTop="@dimen/_8pxh"
                 android:fontFamily="@font/montserrat"
-                android:text="$40"
+                android:text="$"
                 android:textColor="@color/white_A700"
                 android:textSize="@dimen/_20sp"
                 android:textStyle="normal" />
@@ -214,7 +218,7 @@
                 android:layout_marginLeft="@dimen/_210pxh"
                 android:layout_marginTop="@dimen/_32pxh"
                 android:fontFamily="@font/montserrat"
-                android:text="$10"
+                android:text="$"
                 android:textColor="@color/white_A700"
                 android:textSize="@dimen/_20sp"
                 android:textStyle="normal" />
@@ -229,6 +233,7 @@
                 android:textColor="@color/white_A700"
                 android:textSize="@dimen/_20sp"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/totalBill"
                 android:layout_width="wrap_content"
@@ -236,7 +241,7 @@
                 android:layout_marginLeft="@dimen/_210pxh"
                 android:layout_marginTop="@dimen/_56pxh"
                 android:fontFamily="@font/montserrat"
-                android:text="$50"
+                android:text="$"
                 android:textColor="@color/white_A700"
                 android:textSize="@dimen/_20sp"
                 android:textStyle="normal" />

@@ -38,6 +38,8 @@ public class Checkoutpage_Activity extends AppCompatActivity {
     TextView totalBill;
     Button btnCheckout;
     FirebaseAuth mAuth;
+    Date departureDate;
+    Date arrivalDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class Checkoutpage_Activity extends AppCompatActivity {
         txtPurchasedroomprice.setText(Price);
 
         // User Details
+        mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         etGuestname = findViewById(R.id.etGuestname);
         assert currentUser != null;
@@ -85,20 +88,51 @@ public class Checkoutpage_Activity extends AppCompatActivity {
                                 // Set the selected date in the EditText
                                 String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
                                 txtArrivalDate.setText(selectedDate);
+
+                                String arrivalDateStr = txtArrivalDate.getText().toString();
+                                // Parse the arrival date string into a Date object
+                                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                                arrivalDate = null;
+                                try {
+                                    arrivalDate = dateFormat.parse(arrivalDateStr);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+
+                                // calculation of payements!!
+                                if(arrivalDate != null &&departureDate!=null) {
+                                    // Calculate the number of days between the departure and arrival dates
+                                    long timeDiff = departureDate.getTime() - arrivalDate.getTime();
+                                    int days = (int) TimeUnit.MILLISECONDS.toDays(timeDiff) % 365;
+
+                                    // payment calculations
+                                    nightsBooked = findViewById(R.id.nightsBooked);
+                                    String totalNights = days + " Nights";
+                                    nightsBooked.setText(totalNights);
+
+                                    nightsBookedTotal = findViewById(R.id.nightsBookedTotal);
+                                    float nightsBookedTotalPrice = days * room.getPrice();
+                                    String nightsBookedTotalPriceStr = Float.toString(nightsBookedTotalPrice);
+                                    ;
+                                    nightsBookedTotalPriceStr = "$" + nightsBookedTotalPriceStr;
+                                    nightsBookedTotal.setText(nightsBookedTotalPriceStr);
+
+                                    taxTotal = findViewById(R.id.taxTotal);
+                                    taxTotal.setText("$10");
+
+                                    totalBill = findViewById(R.id.totalBill);
+                                    float totalbilling = nightsBookedTotalPrice + 10;
+                                    String totalbillingstr = Float.toString(totalbilling);
+                                    totalBill.setText(totalbillingstr);
+                                }
+                                else{
+                                    Toast.makeText(Checkoutpage_Activity.this, "Enter Date!", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         }, year, month, day);
                 datePickerDialog.show();
             }
         });
-        String arrivalDateStr = txtArrivalDate.getText().toString();
-        // Parse the arrival date string into a Date object
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date arrivalDate = null;
-        try {
-            arrivalDate = dateFormat.parse(arrivalDateStr);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
         // departure date
         txtDeparturedate=findViewById(R.id.txtDeparturedate);
@@ -117,44 +151,53 @@ public class Checkoutpage_Activity extends AppCompatActivity {
                                 // Set the selected date in the EditText
                                 String selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
                                 txtDeparturedate.setText(selectedDate);
+
+                                String departureDateStr = txtDeparturedate.getText().toString();
+                                // Parse the arrival date string into a Date object
+                                SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
+                                departureDate = null;
+                                try {
+                                    departureDate = dateFormat2.parse(departureDateStr);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+
+                                // calculation of payements!!
+                                if(arrivalDate != null &&departureDate!=null) {
+                                    // Calculate the number of days between the departure and arrival dates
+                                    long timeDiff = departureDate.getTime() - arrivalDate.getTime();
+                                    int days = (int) TimeUnit.MILLISECONDS.toDays(timeDiff) % 365;
+
+                                    // payment calculations
+                                    nightsBooked = findViewById(R.id.nightsBooked);
+                                    String totalNights = days + " Nights";
+                                    nightsBooked.setText(totalNights);
+
+                                    nightsBookedTotal = findViewById(R.id.nightsBookedTotal);
+                                    float nightsBookedTotalPrice = days * room.getPrice();
+                                    String nightsBookedTotalPriceStr = Float.toString(nightsBookedTotalPrice);
+                                    ;
+                                    nightsBookedTotalPriceStr = "$" + nightsBookedTotalPriceStr;
+                                    nightsBookedTotal.setText(nightsBookedTotalPriceStr);
+
+                                    taxTotal = findViewById(R.id.taxTotal);
+                                    taxTotal.setText("$10");
+
+                                    totalBill = findViewById(R.id.totalBill);
+                                    float totalbilling = nightsBookedTotalPrice + 10;
+                                    String totalbillingstr = Float.toString(totalbilling);
+                                    totalBill.setText(totalbillingstr);
+                                }
+                                else{
+                                    Toast.makeText(Checkoutpage_Activity.this, "Enter Date!", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         }, year, month, day);
                 datePickerDialog.show();
+
             }
         });
-        String departureDateStr = txtDeparturedate.getText().toString();
-        // Parse the arrival date string into a Date object
-        SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
-        Date departureDate = null;
-        try {
-            departureDate = dateFormat2.parse(departureDateStr);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        // Calculate the number of days between the departure and arrival dates
-        long timeDiff = departureDate.getTime() - arrivalDate.getTime();
-        int days = (int) TimeUnit.MILLISECONDS.toDays(timeDiff) % 365;
-
-        // payment calculations
-        nightsBooked = findViewById(R.id.nightsBooked);
-        String totalNights = days + " Nights";
-        nightsBooked.setText(totalNights);
-
-        nightsBookedTotal = findViewById(R.id.nightsBookedTotal);
-        float nightsBookedTotalPrice = days * room.getPrice();
-        String nightsBookedTotalPriceStr = Float.toString(nightsBookedTotalPrice);;
-        nightsBookedTotalPriceStr = "$" + nightsBookedTotalPriceStr;
-        nightsBookedTotal.setText(nightsBookedTotalPriceStr);
-
-        taxTotal=findViewById(R.id.taxTotal);
-        taxTotal.setText("$10");
-
-        totalBill = findViewById(R.id.totalBill);
-        float totalbilling = nightsBookedTotalPrice + 10;
-        String totalbillingstr = Float.toString(totalbilling);
-        totalBill.setText(totalbillingstr);
-
+        
         // checkout button
         btnCheckout = findViewById(R.id.btnCheckout);
         Date finalArrivalDate = arrivalDate;
