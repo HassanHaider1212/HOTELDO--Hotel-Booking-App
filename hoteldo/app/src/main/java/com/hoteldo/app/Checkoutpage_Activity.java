@@ -40,6 +40,7 @@ public class Checkoutpage_Activity extends AppCompatActivity {
     FirebaseAuth mAuth;
     Date departureDate;
     Date arrivalDate;
+    int days;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +102,7 @@ public class Checkoutpage_Activity extends AppCompatActivity {
                                 if(arrivalDate != null &&departureDate!=null) {
                                     // Calculate the number of days between the departure and arrival dates
                                     long timeDiff = departureDate.getTime() - arrivalDate.getTime();
-                                    int days = (int) TimeUnit.MILLISECONDS.toDays(timeDiff) % 365;
+                                    days = (int) TimeUnit.MILLISECONDS.toDays(timeDiff) % 365;
 
                                     if(days > 0){
                                         // payment calculations
@@ -173,7 +174,7 @@ public class Checkoutpage_Activity extends AppCompatActivity {
                                 if(arrivalDate != null &&departureDate!=null) {
                                     // Calculate the number of days between the departure and arrival dates
                                     long timeDiff = departureDate.getTime() - arrivalDate.getTime();
-                                    int days = (int) TimeUnit.MILLISECONDS.toDays(timeDiff) % 365;
+                                    days = (int) TimeUnit.MILLISECONDS.toDays(timeDiff) % 365;
 
                                     if(days > 0){
                                         // payment calculations
@@ -219,10 +220,12 @@ public class Checkoutpage_Activity extends AppCompatActivity {
         btnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Checkoutpage_Activity.this, "Checkout Successful!", Toast.LENGTH_SHORT).show();
-                Orders = HomepageActivity.getOrders();
-                Order order = new Order(currentUser.getUid(),hotel.getHotelID(),room.getRoomID(), arrivalDate, departureDate, currentUser.getEmail(),currentUser.getDisplayName());
-                Orders.add(order);
+                if(days > 0){
+                    Toast.makeText(Checkoutpage_Activity.this, "Checkout Successful!", Toast.LENGTH_SHORT).show();
+                    Orders = HomepageActivity.getOrders();
+                    Order order = new Order(currentUser.getUid(),hotel.getHotelID(),room.getRoomID(), arrivalDate, departureDate, currentUser.getEmail(),currentUser.getDisplayName());
+                    Orders.add(order);
+                }
             }
         });
     }
