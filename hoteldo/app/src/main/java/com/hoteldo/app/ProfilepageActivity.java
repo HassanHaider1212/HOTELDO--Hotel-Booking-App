@@ -65,7 +65,7 @@ public class ProfilepageActivity extends AppCompatActivity {
     {
         FirebaseAuth.getInstance().signOut();
         Toast.makeText(this, "User Logged Out", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
