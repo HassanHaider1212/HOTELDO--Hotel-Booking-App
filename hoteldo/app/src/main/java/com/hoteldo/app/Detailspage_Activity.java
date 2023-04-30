@@ -10,10 +10,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Detailspage_Activity extends AppCompatActivity implements Detailspage_Activity_Adapter.RoomClickListener{
+public class Detailspage_Activity extends AppCompatActivity implements Detailspage_Activity_Adapter.RoomClickListener {
 
     private static ArrayList<Hotel> hotels;
     private static ArrayList<Room> totalrooms;
@@ -43,6 +45,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
         for(int i=0; i<hotels.size(); i++){
             if(Objects.equals(hotels.get(i).getHotelID(), hotelId)){
                 hotel=hotels.get(i);
+                break;
             }
         }
 
@@ -95,9 +98,12 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
     }
 
     @Override
-    public void onClick() {
+    public void onClick(int pos) {
         Intent intent = new Intent(getApplicationContext(), Checkoutpage_Activity.class);
+
+        intent.putExtra("myHotel", hotel);
+        intent.putExtra("myRoom", rooms.get(pos));
+
         startActivity(intent);
-        Toast.makeText(this, "Checkoutpage!", Toast.LENGTH_SHORT).show();
     }
 }

@@ -11,7 +11,7 @@ public class Detailspage_Activity_Adapter extends RecyclerView.Adapter<Detailspa
     ArrayList<Room> localDataSet;
     private static RoomClickListener listener;
     public interface RoomClickListener{
-        public void onClick();
+        public void onClick(int pos);
     }
 
     public Detailspage_Activity_Adapter(RoomClickListener ctx, ArrayList<Room> dataSet) {
@@ -57,7 +57,7 @@ public class Detailspage_Activity_Adapter extends RecyclerView.Adapter<Detailspa
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onClick();
+                    listener.onClick(getAdapterPosition());
                 }
             });
         }

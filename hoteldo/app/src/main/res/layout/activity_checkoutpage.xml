@@ -128,7 +128,7 @@
                 android:layout_marginStart="@dimen/_21pxh"
                 android:layout_marginTop="@dimen/_10pxv"
                 android:layout_width="match_parent" android:orientation="horizontal">
-                <TextView android:ellipsize="end"
+                <EditText android:ellipsize="end"
                     android:id="@+id/txtArrivalDate"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
@@ -140,7 +140,7 @@
                     android:singleLine="true"
                     android:text="@string/lbl_arrival_date"
                     style="@style/txtSolidRounded_5" tools:text="@string/lbl_arrival_date"/>
-                <TextView android:ellipsize="end"
+                <EditText android:ellipsize="end"
                     android:id="@+id/txtDeparturedate"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10pxh"

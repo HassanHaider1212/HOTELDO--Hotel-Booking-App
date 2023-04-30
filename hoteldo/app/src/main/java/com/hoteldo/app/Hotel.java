@@ -1,8 +1,9 @@
 package com.hoteldo.app;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class Hotel {
+public class Hotel implements Serializable {
     private String name;
     private String hotelID;
     private float ratings;
