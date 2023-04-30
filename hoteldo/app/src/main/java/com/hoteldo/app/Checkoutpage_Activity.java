@@ -3,6 +3,7 @@ package com.hoteldo.app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -225,6 +226,7 @@ public class Checkoutpage_Activity extends AppCompatActivity {
                     Orders = HomepageActivity.getOrders();
                     Order order = new Order(currentUser.getEmail(),hotel.getHotelID(),room.getRoomID(), arrivalDate, departureDate, etGuestemail.getText().toString(),etGuestname.getText().toString());
                     Orders.add(order);
+                    startActivity(new Intent(getApplicationContext(),HomepageActivity.class));
                 }
             }
         });
