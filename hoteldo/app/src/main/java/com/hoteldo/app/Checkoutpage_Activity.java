@@ -46,8 +46,6 @@ public class Checkoutpage_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkoutpage);
 
-        Toast.makeText(this, "Checkoutpage!", Toast.LENGTH_SHORT).show();
-
         // Purchased hotel details
         Hotel hotel = (Hotel) getIntent().getSerializableExtra("myHotel");
         txtPurchasedhotelname = findViewById(R.id.txtPurchasedhotelname);
