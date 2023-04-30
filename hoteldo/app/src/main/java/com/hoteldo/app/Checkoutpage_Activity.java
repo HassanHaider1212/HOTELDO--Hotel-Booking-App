@@ -223,7 +223,7 @@ public class Checkoutpage_Activity extends AppCompatActivity {
                 if(days > 0){
                     Toast.makeText(Checkoutpage_Activity.this, "Checkout Successful!", Toast.LENGTH_SHORT).show();
                     Orders = HomepageActivity.getOrders();
-                    Order order = new Order(currentUser.getUid(),hotel.getHotelID(),room.getRoomID(), arrivalDate, departureDate, currentUser.getEmail(),currentUser.getDisplayName());
+                    Order order = new Order(currentUser.getEmail(),hotel.getHotelID(),room.getRoomID(), arrivalDate, departureDate, currentUser.getEmail(),currentUser.getDisplayName());
                     Orders.add(order);
                 }
             }
