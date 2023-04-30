@@ -3,6 +3,8 @@ package com.hoteldo.app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,20 +20,22 @@ public class OrderhistorypageActivity extends AppCompatActivity {
     private static ArrayList<Order> orders= new ArrayList<>();
 
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
+
+    private LinearLayoutManager layoutManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderhistorypage);
-        orders = HomepageActivity.getOrders();
 
         recyclerView = (RecyclerView) findViewById(R.id.orderhistory_recycler_view);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new OrderAdapter(orders);
+
+        OrderAdapter adapter = new OrderAdapter(HomepageActivity.getOrders());
         recyclerView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
 
 
 

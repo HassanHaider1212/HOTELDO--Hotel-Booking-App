@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class HomepageActivity extends AppCompatActivity implements HotelAdapter.HotelClickListener {
     private static ArrayList<Hotel> hotels= new ArrayList<>();
@@ -88,10 +90,15 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
         hotels.add(new Hotel("Hotel One", "Faisal Town,Lahore Pakistan", "hotelone@test.com", 4.5f, null));
         hotels.add(new Hotel("Hotel Two", "DHA Phase V,Lahore Pakistan", "hoteltwo@test.com", 4.8f, null));
 
+
         rooms.add(new Room(hotels.get(0).getHotelID(), 12.99f, "Economy Suite", true));
         rooms.add(new Room(hotels.get(0).getHotelID(), 22.99f, "Luxury Suite", true));
         rooms.add(new Room(hotels.get(1).getHotelID(), 15.99f, "Gold Suite", true));
         rooms.add(new Room(hotels.get(1).getHotelID(), 30.99f, "Platinum Suite", true));
+
+        orders.add(new Order("Imran",hotels.get(0).getHotelID(),rooms.get(0).getRoomID(),new Date(),new Date(),"aliRaza","AliRaza"));
+        orders.add(new Order("Imran",hotels.get(1).getHotelID(),rooms.get(1).getRoomID(),new Date(),new Date(),"aliRaza","AliRaza"));
+
 
         adapter.notifyDataSetChanged();
     }
