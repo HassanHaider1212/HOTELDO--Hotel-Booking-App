@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcomepage);
         btnLogIn_startup = findViewById(R.id.btnLogIn_startup);
-        FirebaseAuth.getInstance().signOut();
+        //FirebaseAuth.getInstance().signOut();
         //startActivity(new Intent(getApplicationContext(),HomepageActivity.class));
     }
     public void LoginButton(View view)

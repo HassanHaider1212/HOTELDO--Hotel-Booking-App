@@ -127,14 +127,15 @@
                     android:layout_marginBottom="@dimen/_20pxv"
                     android:ellipsize="end"
                     android:gravity="center"
+                    android:onClick="LogOutButton"
                     android:paddingStart="@dimen/_30pxh"
                     android:paddingTop="@dimen/_4pxv"
                     android:paddingEnd="@dimen/_30pxh"
                     android:paddingBottom="@dimen/_4pxv"
                     android:singleLine="true"
-                    android:text="@string/lbl_save"
+                    android:text="LogOut"
                     android:textAllCaps="false"
-                    tools:text="@string/lbl_save" />
+                    tools:text="LogOut" />
             </LinearLayout>
         </ScrollView>
 
