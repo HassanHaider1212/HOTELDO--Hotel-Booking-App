@@ -109,14 +109,12 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
 
                 String recipient = hotel.getEmail();
                 String sender = currentUser.getEmail();
-                Uri uri = Uri.parse("mailto:" + recipient + "?subject=Subject&body=&from=" + sender);
-                Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                } else {
-                    // If no email app is found, prompt user to install one
-                    Toast.makeText(Detailspage_Activity.this, "No email app found", Toast.LENGTH_SHORT).show();
-                }
+                String body = "Hello dear!!\n From = " + sender;
+                String mailTo = "mailto:" + recipient + "?subject=Subject" + "&body=" + Uri.encode(body);
+                Intent emailIntent = new Intent(Intent.ACTION_VIEW);
+                emailIntent.setData(Uri.parse(mailTo));
+                startActivity(emailIntent);
+
             }
         });
 
