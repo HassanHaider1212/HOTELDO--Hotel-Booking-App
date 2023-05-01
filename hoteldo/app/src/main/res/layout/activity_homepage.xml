@@ -50,27 +50,29 @@
                             tools:ignore="ContentDescription"
                             tools:src="@drawable/img_trash" />
 
-                        <EditText
+                        <androidx.appcompat.widget.SearchView
                             android:id="@+id/etSearchbar"
-                            style="@style/etSolidRounded_1"
                             android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_17pxh"
+                            android:layout_height="@dimen/_45pxh"
                             android:layout_marginTop="@dimen/_4pxv"
+                            android:layout_marginEnd="@dimen/_17pxh"
+
                             android:layout_weight="0.85"
                             android:background="@drawable/rectangle_bg_bluegray_900_radius_15"
-                            android:drawableEnd="@drawable/img_globe"
                             android:drawablePadding="@dimen/_30pxh"
-                            android:ellipsize="end"
+                            android:gravity="right"
                             android:hint="@string/lbl_search"
                             android:inputType="text"
+                            android:layoutDirection="rtl"
                             android:paddingStart="@dimen/_20pxh"
                             android:paddingTop="@dimen/_10pxv"
                             android:paddingEnd="@dimen/_17pxh"
                             android:paddingBottom="@dimen/_12pxv"
+                            android:queryHint="@string/lbl_search"
+                            android:searchIcon="@drawable/img_globe"
                             android:singleLine="true"
-                            android:textColorHint="@color/white_A700"
-                            tools:ignore="Autofill" />
+                            android:textAlignment="viewStart"
+                            android:textColorHint="@color/white_A700" />
                     </LinearLayout>
                 </androidx.appcompat.widget.Toolbar>
 
