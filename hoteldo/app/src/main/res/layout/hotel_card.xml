@@ -131,7 +131,7 @@
     <TextView
         android:id="@+id/hotel_price"
         style="@style/btnSolidRounded_2"
-        android:layout_width="@dimen/_168pxh"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/_51pxv"
         android:layout_gravity="bottom|end"
         android:layout_marginStart="@dimen/_24pxh"
@@ -144,7 +144,8 @@
         android:paddingEnd="@dimen/_12pxh"
         android:paddingBottom="@dimen/_8pxv"
         android:singleLine="true"
-        android:text="@string/lbl_from_69"
+        android:text="From $12.99"
         android:textAllCaps="false"
-        tools:text="@string/lbl_from_69" />
+        android:textSize="@dimen/_22sp"
+        tools:text="From $12.99" />
 </androidx.cardview.widget.CardView>
