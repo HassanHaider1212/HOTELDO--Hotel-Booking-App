@@ -62,6 +62,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:itemIconTint="@drawable/selector"
+            app:itemTextColor="@drawable/selector"
             app:menu="@menu/bottom_nav" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

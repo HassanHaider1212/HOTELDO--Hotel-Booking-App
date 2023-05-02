@@ -78,4 +78,19 @@ public class FavouritespageActivity extends AppCompatActivity implements HotelAd
         i.putExtra("hotelID", id);
         startActivity(i);
     }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        favouriteHotels.clear();
+        ArrayList<Hotel> hotels = HomepageActivity.getHotels();
+        for (FavouriteHotel fv:favourites) {
+            for (Hotel h : hotels) {
+                if (h.getHotelID().equals(fv.getHotelID()) && auth.getCurrentUser().getEmail().equals(fv.getUserID())){
+                    favouriteHotels.add(h);
+                }
+            }
+        }
+        adapter.notifyDataSetChanged();
+    }
 }

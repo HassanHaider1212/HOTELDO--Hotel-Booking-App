@@ -133,9 +133,9 @@
                     android:paddingEnd="@dimen/_30pxh"
                     android:paddingBottom="@dimen/_4pxv"
                     android:singleLine="true"
-                    android:text="LogOut"
+                    android:text="Log Out"
                     android:textAllCaps="false"
-                    tools:text="LogOut" />
+                    tools:text="Log Out" />
             </LinearLayout>
         </ScrollView>
 
@@ -150,6 +150,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:itemIconTint="@drawable/selector"
+            app:itemTextColor="@drawable/selector"
             app:menu="@menu/bottom_nav" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

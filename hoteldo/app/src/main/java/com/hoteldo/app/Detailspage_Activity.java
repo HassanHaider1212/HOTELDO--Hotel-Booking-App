@@ -27,6 +27,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
     private static ArrayList<FavouriteHotel> favouriteHotels;
     private static ArrayList<Room> rooms=new ArrayList<>();
     private static Hotel hotel;
+    private FavouriteHotel favObject = null;
     TextView details_hotelname;
     TextView details_hoteladdress;
     TextView details_hotelcity;
@@ -56,6 +57,13 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
             }
         }
 
+        for (FavouriteHotel f:HomepageActivity.getFavouriteHotels()) {
+            if (f.getHotelID().equals(hotelId) && f.getUserID().equals(currentUser.getEmail())){
+                favObject = f;
+                break;
+            }
+        }
+
         //set hotel image
         //details_Hotelimage = findViewById(R.id.details_Hotelimage);
         //details_Hotelimage.setImageResource(R.drawable.);
@@ -80,6 +88,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
             }
         }
 
+
         recyclerView = findViewById(R.id.recyclerRoomsrecycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -92,13 +101,28 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
         String userID = intent.getStringExtra("userID");
 
         details_btnfavourite=findViewById(R.id.details_btnfavourite);
+
+        if(favObject != null){
+
+            details_btnfavourite.setBackgroundResource(R.drawable.heart_filled);
+        }
         details_btnfavourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Detailspage_Activity.this, "Favourite Hotel!", Toast.LENGTH_SHORT).show();
-                favouriteHotels=HomepageActivity.getFavouriteHotels();
-                FavouriteHotel fav = new FavouriteHotel(currentUser.getEmail(), hotelId);
-                favouriteHotels.add(fav);
+                if (favObject == null) {
+                    details_btnfavourite.setBackgroundResource(R.drawable.heart_filled);
+                    Toast.makeText(Detailspage_Activity.this, "Favourite Hotel Added!", Toast.LENGTH_SHORT).show();
+                    favouriteHotels = HomepageActivity.getFavouriteHotels();
+                    FavouriteHotel fav = new FavouriteHotel(currentUser.getEmail(), hotelId);
+                    favouriteHotels.add(fav);
+                }
+                else{
+                    details_btnfavourite.setBackgroundResource(R.drawable.heart);
+                    Toast.makeText(Detailspage_Activity.this, "Favourite Hotel Removed!", Toast.LENGTH_SHORT).show();
+                    HomepageActivity.getFavouriteHotels().remove(favObject);
+                    HomepageActivity.getFavouriteHotels().size();
+
+                }
             }
         });
 
