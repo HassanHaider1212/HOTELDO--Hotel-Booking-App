@@ -104,7 +104,7 @@ public class FirebaseDataManager implements IDataManager{
         });
 
         if(user != null) {
-            myRef.child("Users").addValueEventListener(new ValueEventListener() {
+            myRef.child("Users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     try {
@@ -122,7 +122,7 @@ public class FirebaseDataManager implements IDataManager{
                             data.add(obj);
                         }
 
-                        observer.updateFavourites(data);
+                        observer.updateUser(data);
                     } catch (Exception ex) {
                         Log.e("firebasedb", ex.getMessage());
                     }
