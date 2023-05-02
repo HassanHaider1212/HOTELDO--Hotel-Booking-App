@@ -20,6 +20,8 @@ public class ProfilepageActivity extends AppCompatActivity {
 
     TextView name;
     TextView email;
+    TextView number;
+    TextView cnic;
     TextView HiName;
     Button LogoutButton;
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,8 @@ public class ProfilepageActivity extends AppCompatActivity {
         name = findViewById(R.id.profileNameinput);
         email = findViewById(R.id.profileEmailinput);
         LogoutButton = findViewById(R.id.btnprofileSave);
+        number = findViewById(R.id.profileNumberinput);
+        cnic = findViewById(R.id.profileCnicinput);
         HiName = findViewById(R.id.profileUserName);
         String FullName=FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
         String[] parts = FullName.split(" ");
@@ -37,6 +41,8 @@ public class ProfilepageActivity extends AppCompatActivity {
         HiName.setText("Hi , " + FirstName);
         name.setText(FullName);
         email.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        cnic.setText(HomepageActivity.user.getCNIC());
+        number.setText(HomepageActivity.user.getNumber());
 
         BottomNavigationView navbar = (BottomNavigationView) findViewById(R.id.profilenavbar);
         navbar.setSelectedItemId(R.id.nav_profile);

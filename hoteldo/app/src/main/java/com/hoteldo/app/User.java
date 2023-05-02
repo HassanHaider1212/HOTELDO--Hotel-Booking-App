@@ -34,4 +34,11 @@ public class User {
     }
 
 
+    public String getCNIC() {
+        return CNIC;
+    }
+
+    public String getNumber() {
+        return PhoneNumber;
+    }
 }
