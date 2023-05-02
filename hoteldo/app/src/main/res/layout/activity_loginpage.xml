@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_50pxh"
-                android:layout_marginTop="@dimen/_64pxv"
+                android:layout_marginTop="@dimen/_44pxv"
                 android:layout_marginEnd="@dimen/_49pxh"
                 android:layout_marginBottom="@dimen/_20pxv"
                 android:ellipsize="end"
@@ -103,6 +103,28 @@
                 android:text="@string/lbl_log_in"
                 android:textAllCaps="false"
                 tools:text="@string/lbl_log_in" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnForgotPass"
+                style="@style/btnSolidRounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_50pxh"
+                android:layout_marginTop="@dimen/_14pxv"
+                android:layout_marginEnd="@dimen/_49pxh"
+                android:layout_marginBottom="@dimen/_20pxv"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:onClick="LoginSubmitButton"
+                android:paddingStart="@dimen/_30pxh"
+                android:paddingTop="@dimen/_7pxv"
+                android:paddingEnd="@dimen/_30pxh"
+                android:paddingBottom="@dimen/_7pxv"
+                android:singleLine="true"
+                android:text="Forgot Password"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_22sp"
+                tools:text="Forgot Password" />
         </LinearLayout>
     </ScrollView>
 </layout>
