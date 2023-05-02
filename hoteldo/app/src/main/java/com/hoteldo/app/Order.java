@@ -78,11 +78,11 @@ public class Order {
     public Hashtable<String, String> save(){
         Hashtable<String, String> attributes = new Hashtable<>();
         attributes.put("orderID", orderID);
-        attributes.put("hotelID", orderID);
-        attributes.put("userID", orderID);
-        attributes.put("roomID", orderID);
-        attributes.put("guestMail", orderID);
-        attributes.put("guestName", orderID);
+        attributes.put("hotelID", hotelID);
+        attributes.put("userID", userID);
+        attributes.put("roomID", roomID);
+        attributes.put("guestMail", guestMail);
+        attributes.put("guestName", guestName);
         attributes.put("total", Float.toString(total));
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmssZ");
         attributes.put("placedOn",dateFormat.format(placedOn));
