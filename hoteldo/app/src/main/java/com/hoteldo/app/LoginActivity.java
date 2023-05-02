@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnLogIn;
+    Button resetButton;
     EditText emailEditText;
     EditText passwordEditText;
     FirebaseAuth mAuth;
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginpage);
         btnLogIn = findViewById(R.id.btnLogIn);
+        resetButton = findViewById(R.id.btnForgotPass);
         emailEditText = findViewById(R.id.loginEmailinput);
         passwordEditText = findViewById(R.id.loginPasswordinput);
         mAuth = FirebaseAuth.getInstance();
@@ -78,5 +80,28 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    }
+    public void ResetButton(View view)
+    {
+        String email = emailEditText.getText().toString();
+        if(email.isEmpty())
+        {
+            Toast.makeText(this, "Please Enter Email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful())
+                {
+                    Toast.makeText(LoginActivity.this, "Reset Email Sent", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(LoginActivity.this, "Error: "+task.getException(), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
     }
 }
