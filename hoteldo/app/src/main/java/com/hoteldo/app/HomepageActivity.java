@@ -22,8 +22,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Hashtable;
 
-public class HomepageActivity extends AppCompatActivity implements HotelAdapter.HotelClickListener {
+public class HomepageActivity extends AppCompatActivity implements HotelAdapter.HotelClickListener, FirebaseDataManager.DataObserver {
     private static ArrayList<Hotel> hotels= new ArrayList<>();
     private ArrayList<Hotel> filteredHotels = new ArrayList<>();
     private static ArrayList<Room> rooms= new ArrayList<>();
@@ -63,7 +64,7 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
         return min;
     }
 
-
+    public static IDataManager dao;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -165,24 +166,25 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
         recyclerView.setLayoutManager(layoutManager);
         adapter = new HotelAdapter(this, filteredHotels);
         recyclerView.setAdapter(adapter);
+        dao = new FirebaseDataManager(this);
 
         // dummy data for testing
-        hotels.add(new Hotel("Hotel One", "Faisal Town,Lahore Pakistan", "hotelone@test.com", 4.5f, null));
-        hotels.add(new Hotel("Hotel Two", "DHA Phase V,Lahore Pakistan", "hoteltwo@test.com", 4.8f, null));
+        //hotels.add(new Hotel("Hotel One", "Faisal Town,Lahore Pakistan", "hotelone@test.com", 4.5f, null));
+        //hotels.add(new Hotel("Hotel Two", "DHA Phase V,Lahore Pakistan", "hoteltwo@test.com", 4.8f, null));
 
         for (Hotel h:hotels) {
             filteredHotels.add(h);
             adapter.notifyDataSetChanged();
         }
-        favouriteHotels.add(new FavouriteHotel("zainwajid33@gmail.com", hotels.get(0).getHotelID()));
+        //favouriteHotels.add(new FavouriteHotel("zainwajid33@gmail.com", hotels.get(0).getHotelID()));
 
-        rooms.add(new Room(hotels.get(0).getHotelID(), 12.99f, "Economy Suite", true));
-        rooms.add(new Room(hotels.get(0).getHotelID(), 22.99f, "Luxury Suite", true));
-        rooms.add(new Room(hotels.get(1).getHotelID(), 15.99f, "Gold Suite", true));
-        rooms.add(new Room(hotels.get(1).getHotelID(), 30.99f, "Platinum Suite", true));
+        //rooms.add(new Room(hotels.get(0).getHotelID(), 12.99f, "Economy Suite", true));
+        //rooms.add(new Room(hotels.get(0).getHotelID(), 22.99f, "Luxury Suite", true));
+        //rooms.add(new Room(hotels.get(1).getHotelID(), 15.99f, "Gold Suite", true));
+        //rooms.add(new Room(hotels.get(1).getHotelID(), 30.99f, "Platinum Suite", true));
 
-        orders.add(new Order("Imran",hotels.get(0).getHotelID(),rooms.get(0).getRoomID(),new Date(),new Date(),"aliRaza","AliRaza"));
-        orders.add(new Order("Imran",hotels.get(1).getHotelID(),rooms.get(1).getRoomID(),new Date(),new Date(),"aliRaza","AliRaza"));
+        //orders.add(new Order("Imran",hotels.get(0).getHotelID(),rooms.get(0).getRoomID(),new Date(),new Date(),"aliRaza","AliRaza"));
+        //orders.add(new Order("Imran",hotels.get(1).getHotelID(),rooms.get(1).getRoomID(),new Date(),new Date(),"aliRaza","AliRaza"));
 
 
         adapter.notifyDataSetChanged();
@@ -194,4 +196,89 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
         i.putExtra("hotelID", id);
         startActivity(i);
     }
+
+
+    public Boolean isHotelLoaded(Hotel h){
+        for (Hotel hotel:hotels) {
+            if(hotel.getHotelID().equals(h.getHotelID())){
+                return true;
+            }
+        }
+        return false;
+    }
+    public Boolean isRoomLoaded(Room r){
+        for (Room room:rooms) {
+            if(room.getRoomID().equals(r.getRoomID())){
+                return true;
+            }
+        }
+        return false;
+    }
+    public Boolean isOrderLoaded(Order o){
+        for (Order order:orders) {
+            if(order.getOrderID().equals(o.getOrderID())){
+                return true;
+            }
+        }
+        return false;
+    }
+    public Boolean isFavouriteHotelLoaded(FavouriteHotel h){
+        for (FavouriteHotel hotel:favouriteHotels) {
+            if(hotel.getFavouriteID().equals(h.getFavouriteID())){
+                return true;
+            }
+        }
+        return false;
+    }
+    @Override
+    public void updateHotels(ArrayList<Hashtable<String, String>> loadedhotels) {
+        for (Hashtable<String, String> attributes:loadedhotels) {
+            Hotel h = new Hotel();
+            h.load(attributes);
+            if (!isHotelLoaded(h)){
+                hotels.add(h);
+                filteredHotels.add(h);
+                adapter.notifyDataSetChanged();
+            }
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            filteredHotels.sort((o1, o2) -> Float.compare(getHotelPrice(o1), getHotelPrice(o2)));
+            adapter.notifyDataSetChanged();
+        }
+        //Toast.makeText(getApplicationContext(), "Hotels Loaded!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void updateRooms(ArrayList<Hashtable<String, String>> loadedrooms) {
+        for (Hashtable<String, String> attributes:loadedrooms) {
+            Room r = new Room();
+            r.load(attributes);
+            if(!isRoomLoaded(r)) {
+                rooms.add(r);
+            }
+        }
+    }
+
+    @Override
+    public void updateOrders(ArrayList<Hashtable<String, String>> loadedorders) {
+        for (Hashtable<String, String> attributes:loadedorders) {
+            Order o = new Order();
+            o.load(attributes);
+            if(!isOrderLoaded(o)) {
+                orders.add(o);
+            }
+        }
+    }
+
+    @Override
+    public void updateFavourites(ArrayList<Hashtable<String, String>> loadedfavourites) {
+        for (Hashtable<String, String> attributes:loadedfavourites) {
+            FavouriteHotel f = new FavouriteHotel();
+            f.load(attributes);
+            if(!isFavouriteHotelLoaded(f)) {
+                favouriteHotels.add(f);
+            }
+        }
+    }
+
 }

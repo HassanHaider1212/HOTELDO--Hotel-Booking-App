@@ -83,11 +83,12 @@
                     <TextView
                         android:id="@+id/details_hotelname"
                         style="@style/txtMontserratromanbold40"
-                        android:layout_width="wrap_content"
+                        android:layout_width="@dimen/_250pxv"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:singleLine="true"
                         android:text="@string/lbl_hotel_abc"
+                        android:textSize="40sp"
                         tools:text="@string/lbl_hotel_abc" />
 
                     <LinearLayout

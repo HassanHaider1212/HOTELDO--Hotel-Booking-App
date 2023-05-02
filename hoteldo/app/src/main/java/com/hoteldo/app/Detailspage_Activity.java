@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Objects;
 
 public class Detailspage_Activity extends AppCompatActivity implements Detailspage_Activity_Adapter.RoomClickListener {
@@ -37,6 +38,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
     Detailspage_Activity_Adapter ad;
     RecyclerView recyclerView;
     FirebaseAuth mAuth;
+    private IDataManager dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
                 break;
             }
         }
+        //dao = new FirebaseDataManager(MainActivity.class);
 
         //set hotel image
         //details_Hotelimage = findViewById(R.id.details_Hotelimage);
@@ -115,13 +118,14 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
                     favouriteHotels = HomepageActivity.getFavouriteHotels();
                     FavouriteHotel fav = new FavouriteHotel(currentUser.getEmail(), hotelId);
                     favouriteHotels.add(fav);
+                    HomepageActivity.dao.saveFavourite(fav.save());
                 }
                 else{
+                    HomepageActivity.dao.deleteFavourite(favObject.getFavouriteID());
                     details_btnfavourite.setBackgroundResource(R.drawable.heart);
                     Toast.makeText(Detailspage_Activity.this, "Favourite Hotel Removed!", Toast.LENGTH_SHORT).show();
                     HomepageActivity.getFavouriteHotels().remove(favObject);
                     HomepageActivity.getFavouriteHotels().size();
-
                 }
             }
         });

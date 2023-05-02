@@ -1,10 +1,17 @@
 // orders need to be saved to the online database
 package com.hoteldo.app;
 
+import com.google.type.DateTime;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Hashtable;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 public class Order {
+    private String orderID;
     private String userID;
     private String hotelID;
     private String roomID;
@@ -17,6 +24,7 @@ public class Order {
 
 
     public Order(String userID, String hotelID, String roomID, Date arrivalDate, Date departureDate, String guestMail, String guestName) {
+        this.orderID = UUID.randomUUID().toString();
         this.userID = userID;
         this.hotelID = hotelID;
         this.roomID = roomID;
@@ -36,6 +44,52 @@ public class Order {
             }
         }
         total = days*nightPrice;
+    }
+
+    public Order() {
+        this.orderID = "";
+        this.userID = "";
+        this.hotelID = "";
+        this.roomID = "";
+        this.arrivalDate = null;
+        this.departureDate = null;
+        this.guestMail = "";
+        this.guestName = "";
+        placedOn = null;
+    }
+    public void load(Hashtable<String, String> attributes){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmssZ");
+        try{
+            placedOn = dateFormat.parse(attributes.get("placedOn"));
+            arrivalDate = dateFormat.parse(attributes.get("arrivalDate"));
+            departureDate = dateFormat.parse(attributes.get("departureDate"));
+        }
+        catch(ParseException ex){
+
+        }
+        this.orderID = attributes.get("orderID");
+        this.userID = attributes.get("userID");
+        this.hotelID = attributes.get("hotelID");
+        this.roomID = attributes.get("roomID");
+        this.guestMail = attributes.get("guestMail");
+        this.guestName = attributes.get("guestName");
+        this.total = Float.parseFloat(attributes.get("total"));
+    }
+    public Hashtable<String, String> save(){
+        Hashtable<String, String> attributes = new Hashtable<>();
+        attributes.put("orderID", orderID);
+        attributes.put("hotelID", orderID);
+        attributes.put("userID", orderID);
+        attributes.put("roomID", orderID);
+        attributes.put("guestMail", orderID);
+        attributes.put("guestName", orderID);
+        attributes.put("total", Float.toString(total));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmssZ");
+        attributes.put("placedOn",dateFormat.format(placedOn));
+        attributes.put("arrivalDate",dateFormat.format(arrivalDate));
+        attributes.put("departureDate",dateFormat.format(departureDate));
+
+        return attributes;
     }
 
     public String getUserID() {
@@ -172,5 +226,9 @@ public class Order {
 
     public void setTotal(float total) {
         this.total = total;
+    }
+
+    public String getOrderID() {
+        return orderID;
     }
 }

@@ -1,6 +1,7 @@
 package com.hoteldo.app;
 
 import java.io.Serializable;
+import java.util.Hashtable;
 import java.util.UUID;
 
 public class Room implements Serializable {
@@ -16,6 +17,21 @@ public class Room implements Serializable {
         this.name = name;
         this.availability = availability;
         roomID = UUID.randomUUID().toString();
+    }
+
+    public Room() {
+        this.hotelID = "";
+        this.price = 0.0f;
+        this.name = "";
+        this.availability = true;
+        roomID = "";
+    }
+    public void load(Hashtable<String, String> attributes){
+        hotelID = attributes.get("hotelID");
+        price = Float.parseFloat(attributes.get("price"));
+        name = attributes.get("name");
+        availability = Boolean.parseBoolean(attributes.get("availability"));
+        roomID = attributes.get("roomID");
     }
 
     public String getRoomID() {
