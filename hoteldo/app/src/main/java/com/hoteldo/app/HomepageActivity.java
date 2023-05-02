@@ -285,7 +285,7 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
     @Override
     public void updateUser(ArrayList<Hashtable<String, String>> data) {
         for (Hashtable<String, String> attribute:data) {
-            if(attribute.get("email").equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
+            if(attribute.get("id").equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
                 user.load(attribute);
                 break;
             }

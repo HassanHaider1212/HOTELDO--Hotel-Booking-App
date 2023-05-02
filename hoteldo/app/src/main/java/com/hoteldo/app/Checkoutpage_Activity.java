@@ -227,7 +227,9 @@ public class Checkoutpage_Activity extends AppCompatActivity {
                     Order order = new Order(currentUser.getEmail(),hotel.getHotelID(),room.getRoomID(), arrivalDate, departureDate, etGuestemail.getText().toString(),etGuestname.getText().toString());
                     Orders.add(order);
                     HomepageActivity.dao.saveOrder(order.save());
-                    startActivity(new Intent(getApplicationContext(),HomepageActivity.class));
+                    Intent intent = new Intent(getApplicationContext(),HomepageActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 }
             }
         });
