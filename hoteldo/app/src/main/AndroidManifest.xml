@@ -15,18 +15,26 @@
         android:theme="@style/Theme.MyApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:screenOrientation="portrait"
             android:name=".Checkoutpage_Activity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".SignUpActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".Detailspage_Activity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -36,11 +44,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:screenOrientation="portrait"
             android:name=".HomepageActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".FavouritespageActivity" />
-        <activity android:name=".OrderhistorypageActivity" />
         <activity
+            android:screenOrientation="portrait"
+            android:name=".FavouritespageActivity" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".OrderhistorypageActivity" />
+        <activity
+            android:screenOrientation="portrait"
             android:name=".ProfilepageActivity"
             android:windowSoftInputMode="adjustPan" />
     </application>
