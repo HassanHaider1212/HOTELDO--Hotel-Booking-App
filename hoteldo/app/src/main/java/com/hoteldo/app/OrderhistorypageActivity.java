@@ -25,6 +25,7 @@ public class OrderhistorypageActivity extends AppCompatActivity {
     private LinearLayoutManager layoutManager;
 
     protected void onCreate(Bundle savedInstanceState) {
+        orders.clear();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderhistorypage);
 
@@ -43,9 +44,6 @@ public class OrderhistorypageActivity extends AppCompatActivity {
         OrderAdapter adapter = new OrderAdapter(orders);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-
-
-
 
         BottomNavigationView navbar = (BottomNavigationView) findViewById(R.id.orderhistory_navbar);
         navbar.setSelectedItemId(R.id.nav_orderhistory);
