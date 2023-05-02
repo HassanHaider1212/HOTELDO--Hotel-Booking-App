@@ -20,8 +20,10 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.net.PasswordAuthentication;
+import java.util.ArrayList;
+import java.util.Hashtable;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity implements FirebaseDataManager.DataObserver {
 
     FirebaseAuth mAuth;
     //FirebaseUser firebaseUser;
@@ -31,16 +33,20 @@ public class SignUpActivity extends AppCompatActivity {
     EditText numberField;
     EditText cnicField;
     Button SignupSubmit;
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            startActivity(new Intent(getApplicationContext(),HomepageActivity.class));
-            finish();
-        }
-    }
+    IDataManager dao;
+    public static boolean signedUp = false;
+    public static  User user;
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        if(currentUser != null){
+//            startActivity(new Intent(getApplicationContext(),HomepageActivity.class));
+//            finish();
+//        }
+//
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
         cnicField = findViewById(R.id.signupCNIC);
         SignupSubmit = findViewById(R.id.btnSignUp);
 
-
+        dao = new FirebaseDataManager(this);
 
 
     }
@@ -89,16 +95,23 @@ public class SignUpActivity extends AppCompatActivity {
                             UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder().setDisplayName(name)
                                     .build();
                             user.updateProfile(profileChangeRequest);
-                            
-
-
 
                             nameField.setText("");
                             emailField.setText("");
                             passwordField.setText("");
                             numberField.setText("");
                             cnicField.setText("");
+                            String id = mAuth.getCurrentUser().getUid();
+                            Hashtable<String, String> attribute = new Hashtable<>();
+                            attribute.put("id", id);
+                            attribute.put("name", name);
+                            attribute.put("number", number);
+                            attribute.put("email", email);
+                            attribute.put("cnic", cnic);
+                            dao.saveUser(attribute);
+
                             mAuth.signOut();
+                            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
 
                         } else {
 
@@ -108,5 +121,33 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+
+
+    }
+
+    @Override
+    public void updateHotels(ArrayList<Hashtable<String, String>> loadedhotels) {
+
+    }
+
+    @Override
+    public void updateRooms(ArrayList<Hashtable<String, String>> loadedrooms) {
+
+    }
+
+    @Override
+    public void updateOrders(ArrayList<Hashtable<String, String>> loadedorders) {
+
+    }
+
+    @Override
+    public void updateFavourites(ArrayList<Hashtable<String, String>> loadedfavourites) {
+
+    }
+
+    @Override
+    public void updateUser(ArrayList<Hashtable<String, String>> data) {
+
     }
 }

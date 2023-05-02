@@ -1,5 +1,7 @@
 package com.hoteldo.app;
 
+import java.util.Hashtable;
+
 public class User {
     private String Name;
 
@@ -14,6 +16,21 @@ public class User {
         PhoneNumber = phoneNumber;
         Email = email;
         Password = password;
+    }
+
+    public User(){
+        Name = "";
+        CNIC = "";
+        PhoneNumber = "";
+        Email = "";
+        Password = "";
+    }
+
+    public void load(Hashtable<String, String> data){
+        Name = data.get("name");
+        CNIC = data.get("cnic");
+        Email = data.get("email");
+        PhoneNumber = data.get("number");
     }
 
 

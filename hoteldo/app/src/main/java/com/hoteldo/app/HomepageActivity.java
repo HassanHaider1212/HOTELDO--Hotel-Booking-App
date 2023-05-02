@@ -30,6 +30,7 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
     private static ArrayList<Room> rooms= new ArrayList<>();
     private static ArrayList<FavouriteHotel> favouriteHotels= new ArrayList<>();
     private static ArrayList<Order> orders= new ArrayList<>();
+    public static User user = new User();
     private static String message = "hello";
     public static String getMessage(){
         return message;
@@ -277,6 +278,16 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
             f.load(attributes);
             if(!isFavouriteHotelLoaded(f)) {
                 favouriteHotels.add(f);
+            }
+        }
+    }
+
+    @Override
+    public void updateUser(ArrayList<Hashtable<String, String>> data) {
+        for (Hashtable<String, String> attribute:data) {
+            if(attribute.get("email").equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())){
+                user.load(attribute);
+                break;
             }
         }
     }

@@ -26,6 +26,8 @@ public class FirebaseDataManager implements IDataManager{
         public void updateRooms(ArrayList<Hashtable<String, String>> loadedrooms);
         public void updateOrders(ArrayList<Hashtable<String, String>> loadedorders);
         public void updateFavourites(ArrayList<Hashtable<String, String>> loadedfavourites);
+
+        public void updateUser(ArrayList<Hashtable<String, String>> data);
     }
 
     private DataObserver observer;
@@ -41,6 +43,7 @@ public class FirebaseDataManager implements IDataManager{
         database = FirebaseDatabase.getInstance();
         //database.setPersistenceEnabled(true);
         myRef = database.getReference();
+
         myRef.child("Hotels").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -99,64 +102,96 @@ public class FirebaseDataManager implements IDataManager{
                 Log.w("firebasedb", "Failed to read value.", error.toException());
             }
         });
-        myRef.child("Orders").child(user.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                try {
-                    data = new ArrayList<Hashtable<String,String>>();
-                    for (DataSnapshot d : dataSnapshot.getChildren()) {
-                        GenericTypeIndicator<HashMap<String,Object>> type = new GenericTypeIndicator<HashMap<String, Object>>() {};
-                        HashMap<String,Object> map =  d.getValue(type);
 
-                        Hashtable<String,String> obj = new Hashtable<String,String>();
-                        obj.put("orderID", d.getKey());
-                        for(String key : map.keySet()){
-                            obj.put(key,map.get(key).toString());
+        if(user != null) {
+            myRef.child("Users").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    try {
+                        data = new ArrayList<Hashtable<String, String>>();
+                        for (DataSnapshot d : dataSnapshot.getChildren()) {
+                            GenericTypeIndicator<HashMap<String, Object>> type = new GenericTypeIndicator<HashMap<String, Object>>() {
+                            };
+                            HashMap<String, Object> map = d.getValue(type);
+
+                            Hashtable<String, String> obj = new Hashtable<String, String>();
+                            obj.put("email", d.getKey());
+                            for (String key : map.keySet()) {
+                                obj.put(key, map.get(key).toString());
+                            }
+                            data.add(obj);
                         }
-                        data.add(obj);
+
+                        observer.updateFavourites(data);
+                    } catch (Exception ex) {
+                        Log.e("firebasedb", ex.getMessage());
                     }
-
-                    observer.updateOrders(data);
                 }
-                catch (Exception ex) {
-                    Log.e("firebasedb", ex.getMessage());
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    Log.w("firebasedb", "Failed to read value.", error.toException());
                 }
-            }
+            });
+            myRef.child("Orders").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    try {
+                        data = new ArrayList<Hashtable<String, String>>();
+                        for (DataSnapshot d : dataSnapshot.getChildren()) {
+                            GenericTypeIndicator<HashMap<String, Object>> type = new GenericTypeIndicator<HashMap<String, Object>>() {
+                            };
+                            HashMap<String, Object> map = d.getValue(type);
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                Log.w("firebasedb", "Failed to read value.", error.toException());
-            }
-        });
-        myRef.child("FavouriteHotels").child(user.getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                try {
-                    data = new ArrayList<Hashtable<String,String>>();
-                    for (DataSnapshot d : dataSnapshot.getChildren()) {
-                        GenericTypeIndicator<HashMap<String,Object>> type = new GenericTypeIndicator<HashMap<String, Object>>() {};
-                        HashMap<String,Object> map =  d.getValue(type);
-
-                        Hashtable<String,String> obj = new Hashtable<String,String>();
-                        obj.put("favouriteID", d.getKey());
-                        for(String key : map.keySet()){
-                            obj.put(key,map.get(key).toString());
+                            Hashtable<String, String> obj = new Hashtable<String, String>();
+                            obj.put("orderID", d.getKey());
+                            for (String key : map.keySet()) {
+                                obj.put(key, map.get(key).toString());
+                            }
+                            data.add(obj);
                         }
-                        data.add(obj);
+
+                        observer.updateOrders(data);
+                    } catch (Exception ex) {
+                        Log.e("firebasedb", ex.getMessage());
                     }
-
-                    observer.updateFavourites(data);
                 }
-                catch (Exception ex) {
-                    Log.e("firebasedb", ex.getMessage());
-                }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                Log.w("firebasedb", "Failed to read value.", error.toException());
-            }
-        });
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    Log.w("firebasedb", "Failed to read value.", error.toException());
+                }
+            });
+            myRef.child("FavouriteHotels").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    try {
+                        data = new ArrayList<Hashtable<String, String>>();
+                        for (DataSnapshot d : dataSnapshot.getChildren()) {
+                            GenericTypeIndicator<HashMap<String, Object>> type = new GenericTypeIndicator<HashMap<String, Object>>() {
+                            };
+                            HashMap<String, Object> map = d.getValue(type);
+
+                            Hashtable<String, String> obj = new Hashtable<String, String>();
+                            obj.put("favouriteID", d.getKey());
+                            for (String key : map.keySet()) {
+                                obj.put(key, map.get(key).toString());
+                            }
+                            data.add(obj);
+                        }
+
+                        observer.updateFavourites(data);
+                    } catch (Exception ex) {
+                        Log.e("firebasedb", ex.getMessage());
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    Log.w("firebasedb", "Failed to read value.", error.toException());
+                }
+            });
+        }
     }
 
     @Override
@@ -189,6 +224,18 @@ public class FirebaseDataManager implements IDataManager{
     @Override
     public void deleteFavourite(String id) {
         myRef.child("FavouriteHotels").child(user.getUid()).child(id).removeValue();
+    }
+
+    @Override
+    public void saveUser(Hashtable<String, String> attributes){
+        Enumeration<String> keys = attributes.keys();
+        String id = attributes.get("id");
+        while (keys.hasMoreElements()){
+
+            String key = keys.nextElement();
+            if(!key.equals(id))
+                myRef.child("Users").child(id).child(key).setValue(attributes.get(key));
+        }
     }
 
 }
