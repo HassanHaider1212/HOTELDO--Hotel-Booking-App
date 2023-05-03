@@ -7,161 +7,179 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:orientation="vertical" style="@style/groupStyle_2">
-
-        <FrameLayout
-            android:id="@+id/frameStackcomputer"
+        <ImageView
+            android:id="@+id/details_Hotelimage"
+            cornerRadius="@{@dimen/_15pxh}"
+            imageRes="@{@drawable/img_hotelimage}"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start">
+            android:layout_height="@dimen/_263pxh"
+            android:gravity="start"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription"
+            android:src="@drawable/img_hotelimage" />
 
-            <LinearLayout
-                android:id="@+id/linearColumncomputer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:layout_marginStart="@dimen/_25pxh"
-                android:layout_marginTop="@dimen/_11pxv"
-                android:layout_marginEnd="@dimen/_25pxh"
-                android:layout_marginBottom="@dimen/_11pxv"
-                android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/details_btnmessage"
-                    style="@style/btn"
-                    android:layout_width="@dimen/_40pxv"
-                    android:layout_height="@dimen/_35pxv"
-                    android:layout_marginStart="@dimen/_10pxh"
-                    android:background="@drawable/img_computer"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:textAllCaps="false" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/details_btnfavourite"
-                    style="@style/btn"
-                    android:layout_width="@dimen/_40pxv"
-                    android:layout_height="@dimen/_40pxv"
-                    android:layout_marginStart="@dimen/_10pxh"
-                    android:layout_marginTop="@dimen/_17pxv"
-                    android:layout_marginEnd="@dimen/_10pxh"
-                    android:background="@drawable/heart"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:textAllCaps="false" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearHotelinfo"
+            <FrameLayout
+                android:id="@+id/frameStackcomputer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:gravity="start">
 
-                <ImageView
-                    android:id="@+id/details_Hotelimage"
-                    cornerRadius="@{@dimen/_15pxh}"
-                    imageRes="@{@drawable/img_hotelimage}"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_263pxh"
-                    android:gravity="start"
-                    android:scaleType="fitXY"
-                    tools:ignore="ContentDescription"
-                    android:src="@drawable/img_hotelimage" />
+
 
                 <LinearLayout
-                    android:id="@+id/linearColumnlanguage"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_18pxh"
-                    android:layout_marginTop="@dimen/_12pxv"
-                    android:layout_marginEnd="@dimen/_18pxh"
-                    android:gravity="start"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/details_hotelname"
-                        style="@style/txtMontserratromanbold40"
-                        android:layout_width="@dimen/_250pxv"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="@string/lbl_hotel_abc"
-                        android:textSize="40sp"
-                        tools:text="@string/lbl_hotel_abc" />
+                    android:orientation="horizontal">
 
                     <LinearLayout
-                        android:id="@+id/linearRowlocation"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/linearHotelinfo"
+                        android:layout_width="@dimen/_290pxh"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_1pxh"
-                        android:layout_marginTop="@dimen/_12pxv"
-                        android:layout_marginEnd="@dimen/_10pxh"
-                        android:gravity="start"
-                        android:orientation="horizontal">
+                        android:layout_gravity="start"
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/imageLocation"
-                            android:layout_width="@dimen/_16pxh"
-                            android:layout_height="@dimen/_17pxh"
-                            android:layout_marginTop="@dimen/_4pxv"
-                            android:layout_marginBottom="@dimen/_2pxv"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/img_location"
-                            tools:ignore="ContentDescription"
-                            tools:src="@drawable/img_location" />
 
-                        <TextView
-                            android:id="@+id/details_hoteladdress"
-                            style="@style/txtMontserratromanbold20"
-                            android:layout_width="0dp"
+
+                        <LinearLayout
+                            android:id="@+id/linearColumnlanguage"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_18pxh"
-                            android:layout_weight="0.87"
-                            android:ellipsize="end"
-                            android:singleLine="true"
-                            android:text="@string/lbl_gulberg_iii"
-                            tools:text="@string/lbl_gulberg_iii" />
-                    </LinearLayout>
+                            android:layout_marginTop="@dimen/_12pxv"
+                            android:layout_marginEnd="@dimen/_18pxh"
+                            android:gravity="start"
+                            android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/details_hotelcity"
-                        style="@style/txtMontserratromanregular14"
+                            <TextView
+                                android:id="@+id/details_hotelname"
+                                style="@style/txtMontserratromanbold40"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:text="@string/lbl_hotel_abc"
+                                android:textSize="40sp"
+                                tools:text="@string/lbl_hotel_abc" />
+
+                            <LinearLayout
+                                android:id="@+id/linearRowlocation"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_1pxh"
+                                android:layout_marginTop="@dimen/_12pxv"
+                                android:layout_marginEnd="@dimen/_10pxh"
+                                android:gravity="start"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/imageLocation"
+                                    android:layout_width="@dimen/_16pxh"
+                                    android:layout_height="@dimen/_17pxh"
+                                    android:layout_marginTop="@dimen/_4pxv"
+                                    android:layout_marginBottom="@dimen/_2pxv"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/img_location"
+                                    tools:ignore="ContentDescription"
+                                    tools:src="@drawable/img_location" />
+
+                                <TextView
+                                    android:id="@+id/details_hoteladdress"
+                                    style="@style/txtMontserratromanbold20"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_18pxh"
+                                    android:layout_weight="0.87"
+                                    android:ellipsize="end"
+                                    android:singleLine="true"
+                                    android:text="@string/lbl_gulberg_iii"
+                                    tools:text="@string/lbl_gulberg_iii" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/details_hotelcity"
+                                style="@style/txtMontserratromanregular14"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_35pxh"
+                                android:layout_marginTop="@dimen/_6pxv"
+                                android:layout_marginEnd="@dimen/_35pxh"
+                                android:ellipsize="end"
+                                android:singleLine="true"
+                                android:text="@string/msg_lahore_pakista"
+                                tools:text="@string/msg_lahore_pakista" />
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/linearColumncomputer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_35pxh"
-                        android:layout_marginTop="@dimen/_6pxv"
-                        android:layout_marginEnd="@dimen/_35pxh"
-                        android:ellipsize="end"
-                        android:singleLine="true"
-                        android:text="@string/msg_lahore_pakista"
-                        tools:text="@string/msg_lahore_pakista" />
-                </LinearLayout>
-            </LinearLayout>
-        </FrameLayout>
-        <TextView android:ellipsize="end" android:gravity="start"
-            android:id="@+id/details_RoomsAvailable"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_18pxh"
-            android:layout_marginStart="@dimen/_18pxh"
-            android:layout_marginTop="@dimen/_28pxv"
-            android:layout_width="match_parent"
-            android:singleLine="true"
-            android:text="@string/lbl_rooms_available"
-            style="@style/txtMontserratromanbold32" tools:text="@string/lbl_rooms_available"/>
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginTop="@dimen/_5pxv"
+                        android:layout_marginEnd="@dimen/_15pxh"
+                        android:layout_marginBottom="@dimen/_28pxv"
+                        android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerRoomsrecycler"
-            style="@style/groupStylebluegray_900_c1cornerRadius"
-            itemSpace="@{@dimen/_25pxh}"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_235pxv"
-            android:layout_marginStart="@dimen/_18pxh"
-            android:layout_marginTop="@dimen/_11pxv"
-            android:layout_marginEnd="@dimen/_18pxh"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/details_btnmessage"
+                            style="@style/btn"
+                            android:layout_width="@dimen/_40pxv"
+                            android:layout_height="@dimen/_35pxv"
+                            android:layout_marginStart="@dimen/_10pxh"
+                            android:background="@drawable/img_computer"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textAllCaps="false" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/details_btnfavourite"
+                            style="@style/btn"
+                            android:layout_width="@dimen/_40pxv"
+                            android:layout_height="@dimen/_40pxv"
+                            android:layout_marginStart="@dimen/_10pxh"
+                            android:layout_marginTop="@dimen/_17pxv"
+                            android:layout_marginEnd="@dimen/_10pxh"
+                            android:background="@drawable/heart"
+                            android:ellipsize="end"
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView android:ellipsize="end" android:gravity="start"
+                    android:id="@+id/details_RoomsAvailable"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_18pxh"
+                    android:layout_marginStart="@dimen/_18pxh"
+                    android:layout_marginTop="@dimen/_158pxv"
+                    android:layout_width="match_parent"
+                    android:singleLine="true"
+                    android:text="@string/lbl_rooms_available"
+                    style="@style/txtMontserratromanbold32" tools:text="@string/lbl_rooms_available"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerRoomsrecycler"
+                    style="@style/groupStylebluegray_900_c1cornerRadius"
+                    itemSpace="@{@dimen/_25pxh}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_275pxv"
+                    android:layout_marginStart="@dimen/_18pxh"
+                    android:layout_marginTop="@dimen/_225pxv"
+                    android:layout_marginEnd="@dimen/_18pxh"
+                    android:layout_marginBottom="@dimen/_20pxh"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </FrameLayout>
+
+
+
+        </ScrollView>
     </LinearLayout>
 </layout>

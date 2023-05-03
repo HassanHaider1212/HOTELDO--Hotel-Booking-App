@@ -129,7 +129,7 @@
                 android:layout_marginTop="@dimen/_10pxv"
                 android:layout_width="match_parent" android:orientation="horizontal">
 
-                <EditText
+                <TextView
                     android:id="@+id/txtArrivalDate"
                     style="@style/txtSolidRounded_5"
                     android:layout_width="0dp"
@@ -143,7 +143,7 @@
                     android:paddingBottom="@dimen/_13pxv"
                     android:singleLine="true" />
 
-                <EditText
+                <TextView
                     android:id="@+id/txtDeparturedate"
                     style="@style/txtSolidRounded_5"
                     android:layout_width="0dp"

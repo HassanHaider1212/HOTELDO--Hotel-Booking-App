@@ -119,6 +119,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
                     FavouriteHotel fav = new FavouriteHotel(currentUser.getEmail(), hotelId);
                     favouriteHotels.add(fav);
                     HomepageActivity.dao.saveFavourite(fav.save());
+                    favObject = fav;
                 }
                 else{
                     HomepageActivity.dao.deleteFavourite(favObject.getFavouriteID());
@@ -126,6 +127,7 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
                     Toast.makeText(Detailspage_Activity.this, "Favourite Hotel Removed!", Toast.LENGTH_SHORT).show();
                     HomepageActivity.getFavouriteHotels().remove(favObject);
                     HomepageActivity.getFavouriteHotels().size();
+                    favObject=null;
                 }
             }
         });

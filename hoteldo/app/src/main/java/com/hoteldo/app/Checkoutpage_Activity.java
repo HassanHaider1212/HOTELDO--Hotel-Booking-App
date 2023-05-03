@@ -30,8 +30,8 @@ public class Checkoutpage_Activity extends AppCompatActivity {
     TextView txtPurchasedroomprice;
     EditText etGuestname;
     EditText etGuestemail;
-    EditText txtArrivalDate;
-    EditText txtDeparturedate;
+    TextView txtArrivalDate;
+    TextView txtDeparturedate;
 
     TextView nightsBooked;
     TextView nightsBookedTotal;
