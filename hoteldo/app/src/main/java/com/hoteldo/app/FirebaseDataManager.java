@@ -41,8 +41,9 @@ public class FirebaseDataManager implements IDataManager{
         user = FirebaseAuth.getInstance().getCurrentUser();
         observer = obs;
         database = FirebaseDatabase.getInstance();
-        //database.setPersistenceEnabled(true);
+
         myRef = database.getReference();
+        myRef.keepSynced(true);
 
         myRef.child("Hotels").addValueEventListener(new ValueEventListener() {
             @Override
@@ -198,7 +199,7 @@ public class FirebaseDataManager implements IDataManager{
     @Override
     public void saveOrder(Hashtable<String, String> attributes) {
         String id = attributes.get("orderID");
-
+        myRef.keepSynced(true);
         Enumeration<String> keys = attributes.keys();
         while (keys.hasMoreElements()){
             String key = keys.nextElement();
@@ -211,7 +212,7 @@ public class FirebaseDataManager implements IDataManager{
     @Override
     public void saveFavourite(Hashtable<String, String> attributes) {
         String id = attributes.get("favouriteID");
-
+        myRef.keepSynced(true);
         Enumeration<String> keys = attributes.keys();
         while (keys.hasMoreElements()){
             String key = keys.nextElement();
@@ -224,11 +225,13 @@ public class FirebaseDataManager implements IDataManager{
 
     @Override
     public void deleteFavourite(String id) {
+        myRef.keepSynced(true);
         myRef.child("FavouriteHotels").child(user.getUid()).child(id).removeValue();
     }
 
     @Override
     public void saveUser(Hashtable<String, String> attributes){
+        myRef.keepSynced(true);
         Enumeration<String> keys = attributes.keys();
         String id = attributes.get("id");
         while (keys.hasMoreElements()){
