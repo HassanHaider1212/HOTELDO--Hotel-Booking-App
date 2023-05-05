@@ -102,29 +102,30 @@ public class Checkoutpage_Activity extends AppCompatActivity {
                                 // calculation of payements!!
                                 if(arrivalDate != null &&departureDate!=null) {
                                     // Calculate the number of days between the departure and arrival dates
+                                    nightsBooked = findViewById(R.id.nightsBooked);
+                                    nightsBookedTotal = findViewById(R.id.nightsBookedTotal);
+                                    taxTotal = findViewById(R.id.taxTotal);
+                                    totalBill = findViewById(R.id.totalBill);
+
                                     long timeDiff = departureDate.getTime() - arrivalDate.getTime();
                                     days = (int) TimeUnit.MILLISECONDS.toDays(timeDiff) % 365;
 
                                     if(days > 0){
                                         // payment calculations
-                                        nightsBooked = findViewById(R.id.nightsBooked);
                                         String totalNights = days + " Nights";
                                         nightsBooked.setText(totalNights);
 
-                                        nightsBookedTotal = findViewById(R.id.nightsBookedTotal);
                                         float nightsBookedTotalPrice = days * room.getPrice();
                                         String nightsBookedTotalPriceStr = Float.toString(nightsBookedTotalPrice);
                                         ;
                                         nightsBookedTotalPriceStr = "$" + nightsBookedTotalPriceStr;
                                         nightsBookedTotal.setText(nightsBookedTotalPriceStr);
 
-                                        taxTotal = findViewById(R.id.taxTotal);
                                         taxTotal.setText("$10");
 
-                                        totalBill = findViewById(R.id.totalBill);
                                         float totalbilling = nightsBookedTotalPrice + 10;
                                         String totalbillingstr = Float.toString(totalbilling);
-                                        totalBill.setText(totalbillingstr);
+                                        totalBill.setText("$" + totalbillingstr);
                                     }
                                     else{
                                         Toast.makeText(Checkoutpage_Activity.this, "Must: Arrival Date < Departure Date!", Toast.LENGTH_SHORT).show();
@@ -174,29 +175,30 @@ public class Checkoutpage_Activity extends AppCompatActivity {
                                 // calculation of payements!!
                                 if(arrivalDate != null &&departureDate!=null) {
                                     // Calculate the number of days between the departure and arrival dates
+                                    nightsBooked = findViewById(R.id.nightsBooked);
+                                    nightsBookedTotal = findViewById(R.id.nightsBookedTotal);
+                                    taxTotal = findViewById(R.id.taxTotal);
+                                    totalBill = findViewById(R.id.totalBill);
+
                                     long timeDiff = departureDate.getTime() - arrivalDate.getTime();
                                     days = (int) TimeUnit.MILLISECONDS.toDays(timeDiff) % 365;
 
                                     if(days > 0){
                                         // payment calculations
-                                        nightsBooked = findViewById(R.id.nightsBooked);
                                         String totalNights = days + " Nights";
                                         nightsBooked.setText(totalNights);
 
-                                        nightsBookedTotal = findViewById(R.id.nightsBookedTotal);
                                         float nightsBookedTotalPrice = days * room.getPrice();
                                         String nightsBookedTotalPriceStr = Float.toString(nightsBookedTotalPrice);
                                         ;
                                         nightsBookedTotalPriceStr = "$" + nightsBookedTotalPriceStr;
                                         nightsBookedTotal.setText(nightsBookedTotalPriceStr);
 
-                                        taxTotal = findViewById(R.id.taxTotal);
                                         taxTotal.setText("$10");
 
-                                        totalBill = findViewById(R.id.totalBill);
                                         float totalbilling = nightsBookedTotalPrice + 10;
                                         String totalbillingstr = Float.toString(totalbilling);
-                                        totalBill.setText(totalbillingstr);
+                                        totalBill.setText("$" + totalbillingstr);
                                     }
                                     else{
                                         Toast.makeText(Checkoutpage_Activity.this, "Must: Arrival Date < Departure Date!", Toast.LENGTH_SHORT).show();
