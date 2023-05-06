@@ -47,7 +47,7 @@
                 android:id="@+id/loginEmailinput"
                 style="@style/etSolidRounded"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40pxh"
                 android:layout_marginStart="@dimen/_50pxh"
                 android:layout_marginTop="@dimen/_82pxv"
                 android:layout_marginEnd="@dimen/_49pxh"
@@ -63,25 +63,31 @@
                 android:textColorHint="@color/white_A700"
                 tools:ignore="Autofill" />
 
+
             <EditText
                 android:id="@+id/loginPasswordinput"
                 style="@style/etSolidRounded"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_40pxh"
                 android:layout_marginStart="@dimen/_50pxh"
                 android:layout_marginTop="@dimen/_21pxv"
                 android:layout_marginEnd="@dimen/_49pxh"
                 android:background="@drawable/rectangle_bg_bluegray_900_aa_radius_15"
+                android:drawableRight="@drawable/ic_visibleoff_foreground"
+
                 android:ellipsize="end"
                 android:hint="@string/lbl_password"
                 android:inputType="textPassword"
+                android:longClickable="false"
                 android:paddingStart="@dimen/_24pxh"
                 android:paddingTop="@dimen/_14pxv"
-                android:paddingEnd="@dimen/_30pxh"
+                android:paddingEnd="@dimen/_10pxh"
                 android:paddingBottom="@dimen/_14pxv"
                 android:singleLine="true"
                 android:textColorHint="@color/white_A700"
-                tools:ignore="Autofill" />
+                tools:ignore="Autofill"
+
+                />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnLogIn"

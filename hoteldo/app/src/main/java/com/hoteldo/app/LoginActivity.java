@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText emailEditText;
     EditText passwordEditText;
     FirebaseAuth mAuth;
+    Boolean passwordVisible = true;
 
     @Override
     public void onStart() {
@@ -43,6 +47,35 @@ public class LoginActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.loginEmailinput);
         passwordEditText = findViewById(R.id.loginPasswordinput);
         mAuth = FirebaseAuth.getInstance();
+
+        passwordEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int Right =2;
+                if(event.getAction() == MotionEvent.ACTION_UP)
+                {
+                    if(event.getRawX() >= passwordEditText.getRight()-passwordEditText.getCompoundDrawables()[Right].getBounds().width())
+                    {
+                         int selection = passwordEditText.getSelectionEnd();
+                         if(passwordVisible)
+                         {
+                              passwordEditText.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_visible_foreground,0);
+                              passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                              passwordVisible = false;
+                         }
+                         else
+                         {
+                             passwordEditText.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_visibleoff_foreground,0);
+                             passwordEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                             passwordVisible = true;
+                         }
+                         passwordEditText.setSelection(selection);
+                         return true;
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     public void LoginSubmitButton(View view){
