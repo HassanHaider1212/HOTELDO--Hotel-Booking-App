@@ -3,6 +3,7 @@ package com.hoteldo.app;
 
 import com.google.type.DateTime;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Hashtable;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class Order {
+public class Order implements Serializable {
     private String orderID;
     private String userID;
     private String hotelID;
