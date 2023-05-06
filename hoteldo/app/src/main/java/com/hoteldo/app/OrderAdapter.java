@@ -50,7 +50,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
             }
         }
         holder.RoomName.setText(tempRoom.getName());
-        holder.Price.setText(String.valueOf( order.getTotal() ));
+        holder.Price.setText("$"+String.valueOf( order.getTotal() ));
         
 
 
