@@ -169,7 +169,7 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new HotelAdapter(this, filteredHotels);
+        adapter = new HotelAdapter(this, filteredHotels, getApplicationContext());
         recyclerView.setAdapter(adapter);
         //
         dao = new FirebaseDataManager(this);

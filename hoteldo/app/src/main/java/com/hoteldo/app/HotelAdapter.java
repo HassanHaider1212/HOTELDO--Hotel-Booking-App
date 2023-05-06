@@ -12,6 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
+
 import java.net.URI;
 import java.util.ArrayList;
 
@@ -19,12 +23,15 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
     private ArrayList<Hotel> hotels;
     //private Context context;
     private HotelClickListener listener;
+
+    private Context activityContext;
     public interface HotelClickListener{
         public void onClick(String id);
     }
-    public HotelAdapter(HotelClickListener ctx, ArrayList<Hotel> hotels){
+    public HotelAdapter(HotelClickListener ctx, ArrayList<Hotel> hotels, Context context){
         this.hotels = hotels;
         listener = ctx;
+        activityContext = context;
     }
     public void setHotels(ArrayList<Hotel> hotels){
         this.hotels = hotels;
@@ -63,7 +70,21 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         holder.hotelLocation.setText(city);
         holder.hotelCity.setText(address[1]);
         holder.hotelRating.setText(Float.toString(hotel.getRatings()));
-        // holder.hotelImage -> download image and set it here
+        //"https://wallpaperaccess.com/full/266770.jpg"
+        // 12kHBMmLPnqfq-qQSW4JKzTpjEjD2-XzL
+        String[] parts = hotel.getImageURL().split("/");
+        String url = "https://drive.google.com/uc?export=view&id=" + parts[5];
+        final int radius = 45;
+        final int margin = 0;
+        final Transformation transformation = new RoundedCornersTransformation(radius, margin);
+        Picasso.with(activityContext)
+                .load(url)
+                .fit()
+                .centerCrop()
+                .transform(transformation)
+                .error(R.drawable.img_hotelimage)
+                .into(holder.hotelimage);
+        // holder.hotehollImage -> download image and set it here
 
        // holder.hotelPrice.setText(Float.toString(hotel.get));
         // find the minimum room rpice of all the
