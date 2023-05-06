@@ -3,6 +3,7 @@ package com.hoteldo.app;
 
 import com.google.type.DateTime;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Hashtable;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class Order {
+public class Order implements Serializable {
     private String orderID;
     private String userID;
     private String hotelID;
@@ -22,8 +23,11 @@ public class Order {
     private String guestName;
     private float total;
 
+    private IDataManager dao;
+
 
     public Order(String userID, String hotelID, String roomID, Date arrivalDate, Date departureDate, String guestMail, String guestName) {
+        dao = new FirebaseDataManager();
         this.orderID = UUID.randomUUID().toString();
         this.userID = userID;
         this.hotelID = hotelID;
@@ -47,6 +51,7 @@ public class Order {
     }
 
     public Order() {
+        dao = new FirebaseDataManager();
         this.orderID = "";
         this.userID = "";
         this.hotelID = "";
@@ -75,7 +80,7 @@ public class Order {
         this.guestName = attributes.get("guestName");
         this.total = Float.parseFloat(attributes.get("total"));
     }
-    public Hashtable<String, String> save(){
+    public void save(){
         Hashtable<String, String> attributes = new Hashtable<>();
         attributes.put("orderID", orderID);
         attributes.put("hotelID", hotelID);
@@ -89,7 +94,7 @@ public class Order {
         attributes.put("arrivalDate",dateFormat.format(arrivalDate));
         attributes.put("departureDate",dateFormat.format(departureDate));
 
-        return attributes;
+        dao.saveOrder(attributes);
     }
 
     public String getUserID() {

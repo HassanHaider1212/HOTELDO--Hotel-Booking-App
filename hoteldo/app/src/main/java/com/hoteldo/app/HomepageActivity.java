@@ -109,29 +109,33 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
                 if (selected.equals("Price: Ascending")){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         filteredHotels.sort((o1, o2) -> Float.compare(getHotelPrice(o1), getHotelPrice(o2)));
-                        adapter.notifyDataSetChanged();
+                        hotels.sort((o1, o2) -> Float.compare(getHotelPrice(o1), getHotelPrice(o2)));
                     }
                 }
                 else if (selected.equals(("Price: Descending"))){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         filteredHotels.sort((o1, o2) -> Float.compare(getHotelPrice(o1), getHotelPrice(o2)));
                         Collections.reverse(filteredHotels);
-                        adapter.notifyDataSetChanged();
+                        hotels.sort((o1, o2) -> Float.compare(getHotelPrice(o1), getHotelPrice(o2)));
+                        Collections.reverse(hotels);
                     }
                 }
                 else if (selected.equals("Ratings: Ascending")){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         filteredHotels.sort((o1, o2) -> Float.compare(o1.getRatings(), o2.getRatings()));
-                        adapter.notifyDataSetChanged();
+                        hotels.sort((o1, o2) -> Float.compare(o1.getRatings(), o2.getRatings()));
                     }
                 }
                 else if(selected.equals("Ratings: Descending")){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         filteredHotels.sort((o1, o2) -> Float.compare(o1.getRatings(), o2.getRatings()));
                         Collections.reverse(filteredHotels);
-                        adapter.notifyDataSetChanged();
+                        hotels.sort((o1, o2) -> Float.compare(o1.getRatings(), o2.getRatings()));
+                        Collections.reverse(hotels);
                     }
                 }
+
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -167,6 +171,7 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
         recyclerView.setLayoutManager(layoutManager);
         adapter = new HotelAdapter(this, filteredHotels);
         recyclerView.setAdapter(adapter);
+        //
         dao = new FirebaseDataManager(this);
 
         // dummy data for testing

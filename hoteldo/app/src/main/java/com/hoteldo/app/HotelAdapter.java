@@ -59,7 +59,8 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         holder.hotelPrice.setText("From $" + Float.toString(min));
 
         String[] address = hotel.getAddress().split(",");
-        holder.hotelLocation.setText(address[0]);
+        String city = address[0];
+        holder.hotelLocation.setText(city);
         holder.hotelCity.setText(address[1]);
         holder.hotelRating.setText(Float.toString(hotel.getRatings()));
         // holder.hotelImage -> download image and set it here

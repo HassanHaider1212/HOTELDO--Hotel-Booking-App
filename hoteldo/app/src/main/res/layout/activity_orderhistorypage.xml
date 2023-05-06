@@ -3,23 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data/>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/rectangle_gradient_s_bluegray_900_e_lime_300">
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDownloadOrderHistory"
+            style="@style/btnSolidRounded_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="2dp"
+            android:hint="D"
+            app:layout_constraintBottom_toTopOf="@+id/linearHistoryPage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtOrderHistory"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/txtOrderHistory"
             style="@style/txtMontserratromanbold44"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
             android:layout_marginTop="@dimen/_38pxv"
-            android:layout_marginLeft="@dimen/_20pxv"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="Recent Orders"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/btnDownloadOrderHistory"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="11dp"
             tools:text="Recent Orders" />
 
         <LinearLayout

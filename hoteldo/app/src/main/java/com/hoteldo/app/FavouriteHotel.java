@@ -9,16 +9,20 @@ public class FavouriteHotel {
     private String userID;
     private String hotelID;
 
+    private IDataManager dao;
+
     public FavouriteHotel(String userID, String hotelID){
         this.hotelID = hotelID;
         this.userID = userID;
         favouriteID = UUID.randomUUID().toString();
+        dao = new FirebaseDataManager();
     }
 
     public FavouriteHotel() {
         hotelID = "";
         userID = "";
         favouriteID = "";
+        dao = new FirebaseDataManager();
     }
 
     public void load(Hashtable<String, String> attributes){
@@ -27,13 +31,13 @@ public class FavouriteHotel {
         favouriteID = attributes.get("favouriteID");
     }
 
-    public Hashtable<String, String> save(){
+    public void save(){
         Hashtable<String, String> attributes = new Hashtable<>();
         attributes.put("hotelID", hotelID);
         attributes.put("userID", userID);
         attributes.put("favouriteID", favouriteID);
 
-        return attributes;
+        dao.saveFavourite(attributes);
     }
 
     public String getUserID() {
@@ -54,5 +58,9 @@ public class FavouriteHotel {
 
     public String getFavouriteID() {
         return favouriteID;
+    }
+
+    public void delete() {
+        dao.deleteFavourite(this.getFavouriteID());
     }
 }
