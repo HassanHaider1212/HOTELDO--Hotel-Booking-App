@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -70,6 +72,19 @@ public class Detailspage_Activity extends AppCompatActivity implements Detailspa
         //set hotel image
         //details_Hotelimage = findViewById(R.id.details_Hotelimage);
         //details_Hotelimage.setImageResource(R.drawable.);
+        details_Hotelimage = findViewById(R.id.details_Hotelimage);
+        String[] parts = hotel.getImageURL().split("/");
+        String url = "https://drive.google.com/uc?export=view&id=" + parts[5];
+        final int radius = 45;
+        final int margin = 0;
+        final Transformation transformation = new RoundedCornersTransformation(radius, margin);
+        Picasso.with(getApplicationContext())
+                .load(url)
+                .fit()
+                .centerCrop()
+                .transform(transformation)
+                .error(R.drawable.img_hotelimage)
+                .into(details_Hotelimage);
 
         //set hotel name
         details_hotelname = findViewById(R.id.details_hotelname);

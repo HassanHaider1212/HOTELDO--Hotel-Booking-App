@@ -68,7 +68,7 @@ public class FavouritespageActivity extends AppCompatActivity implements HotelAd
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new HotelAdapter(this, favouriteHotels);
+        adapter = new HotelAdapter(this, favouriteHotels, getApplicationContext());
         recyclerView.setAdapter(adapter);
     }
 
