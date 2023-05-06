@@ -1,8 +1,6 @@
 // orders need to be saved to the online database
 package com.hoteldo.app;
 
-import com.google.type.DateTime;
-
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,7 +21,7 @@ public class Order implements Serializable {
     private String guestName;
     private float total;
 
-    private IDataManager dao;
+    private static IDataManager dao;
 
 
     public Order(String userID, String hotelID, String roomID, Date arrivalDate, Date departureDate, String guestMail, String guestName) {

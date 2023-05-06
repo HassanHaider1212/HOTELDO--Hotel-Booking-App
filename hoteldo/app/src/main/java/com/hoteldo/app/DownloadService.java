@@ -39,7 +39,7 @@ public class DownloadService extends Service {
             try {
                 FileWriter writer = new FileWriter(file);
                 // Write header row to CSV file
-                writer.append("Order ID,User ID,Hotel ID,Room ID,Arrival Date,Departure Date,Guest Mail,Guest Name\n");
+                writer.append("Order ID,User ID,Hotel ID,Room ID,Arrival Date,Departure Date,Guest Mail,Guest Name,Placed On\n");
                 // Loop through orders ArrayList and write data to CSV file
                 for (Order order : orders) {
                     writer.append(order.getOrderID());
@@ -57,6 +57,8 @@ public class DownloadService extends Service {
                     writer.append(order.getGuestMail());
                     writer.append(",");
                     writer.append(order.getGuestName());
+                    writer.append(",");
+                    writer.append(order.getPlacedOn().toString());
                     writer.append("\n");
                 }
                 // Close FileWriter object
