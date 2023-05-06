@@ -36,10 +36,7 @@ public class SignUpActivity extends AppCompatActivity{
     EditText numberField;
     EditText cnicField;
     Button SignupSubmit;
-    Boolean passwordVisible = true;
-    IDataManager dao;
-    public static boolean signedUp = false;
-    public static  User user;
+    private Boolean passwordVisible = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,13 +45,6 @@ public class SignUpActivity extends AppCompatActivity{
         nameField = findViewById(R.id.signupNameinput );
         emailField = findViewById(R.id.signupEmailinput);
         passwordField = findViewById(R.id.signupPasswordinput);
-        numberField = findViewById(R.id.signupPhoneNumber);
-        cnicField = findViewById(R.id.signupCNIC);
-        SignupSubmit = findViewById(R.id.btnSignUp);
-
-        dao = new FirebaseDataManager(this);
-
-
         passwordField.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -81,10 +71,12 @@ public class SignUpActivity extends AppCompatActivity{
                     }
                 }
                 return false;
-            }
-        });
+                }
+            });
 
-
+        numberField = findViewById(R.id.signupPhoneNumber);
+        cnicField = findViewById(R.id.signupCNIC);
+        SignupSubmit = findViewById(R.id.btnSignUp);
     }
     public void SignUpSubmitButton(View view)
     {

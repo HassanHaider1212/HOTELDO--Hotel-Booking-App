@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText emailEditText;
     EditText passwordEditText;
     FirebaseAuth mAuth;
-    Boolean passwordVisible = true;
+    private Boolean passwordVisible = true;
 
     @Override
     public void onStart() {
@@ -46,8 +46,6 @@ public class LoginActivity extends AppCompatActivity {
         resetButton = findViewById(R.id.btnForgotPass);
         emailEditText = findViewById(R.id.loginEmailinput);
         passwordEditText = findViewById(R.id.loginPasswordinput);
-        mAuth = FirebaseAuth.getInstance();
-
         passwordEditText.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -56,26 +54,27 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     if(event.getRawX() >= passwordEditText.getRight()-passwordEditText.getCompoundDrawables()[Right].getBounds().width())
                     {
-                         int selection = passwordEditText.getSelectionEnd();
-                         if(passwordVisible)
-                         {
-                              passwordEditText.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_visible_foreground,0);
-                              passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                              passwordVisible = false;
-                         }
-                         else
-                         {
-                             passwordEditText.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_visibleoff_foreground,0);
-                             passwordEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                             passwordVisible = true;
-                         }
-                         passwordEditText.setSelection(selection);
-                         return true;
+                        int selection = passwordEditText.getSelectionEnd();
+                        if(passwordVisible)
+                        {
+                            passwordEditText.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_visible_foreground,0);
+                            passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passwordVisible = false;
+                        }
+                        else
+                        {
+                            passwordEditText.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_visibleoff_foreground,0);
+                            passwordEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passwordVisible = true;
+                        }
+                        passwordEditText.setSelection(selection);
+                        return true;
                     }
                 }
                 return false;
-            }
+                }
         });
+        mAuth = FirebaseAuth.getInstance();
     }
 
     public void LoginSubmitButton(View view){
