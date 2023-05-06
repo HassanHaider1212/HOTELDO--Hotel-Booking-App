@@ -70,6 +70,9 @@
             android:name=".ProfilepageActivity"
             android:windowSoftInputMode="adjustPan" />
         <service android:name=".DownloadService" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1727910243395436~3709977199"></meta-data>
     </application>
 
 </manifest>

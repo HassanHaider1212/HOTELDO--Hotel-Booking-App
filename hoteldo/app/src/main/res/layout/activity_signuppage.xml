@@ -6,6 +6,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/rectangle_gradient_s_bluegray_900_e_lime_300">
 
+
         <LinearLayout
             android:id="@+id/linearSignupPage"
             style="@style/groupStyle_1"
@@ -14,6 +15,19 @@
             android:background="#00FFFFFF"
             android:gravity="center_horizontal"
             android:orientation="vertical">
+
+
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adViewSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            </com.google.android.gms.ads.AdView>
+
 
             <ImageView
                 android:id="@+id/imageHotelsvgrepoc"
