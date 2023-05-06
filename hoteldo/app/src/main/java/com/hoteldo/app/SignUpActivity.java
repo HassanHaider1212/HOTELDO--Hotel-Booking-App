@@ -36,11 +36,8 @@ public class SignUpActivity extends AppCompatActivity{
     EditText numberField;
     EditText cnicField;
     Button SignupSubmit;
-<<<<<<< HEAD
     Boolean passwordVisible = true;
     IDataManager dao;
-=======
->>>>>>> 46492806a4ec5015da3b3e90248ab1d910883ef7
     public static boolean signedUp = false;
     public static  User user;
     @Override
@@ -54,7 +51,6 @@ public class SignUpActivity extends AppCompatActivity{
         numberField = findViewById(R.id.signupPhoneNumber);
         cnicField = findViewById(R.id.signupCNIC);
         SignupSubmit = findViewById(R.id.btnSignUp);
-<<<<<<< HEAD
 
         dao = new FirebaseDataManager(this);
 
@@ -89,8 +85,6 @@ public class SignUpActivity extends AppCompatActivity{
         });
 
 
-=======
->>>>>>> 46492806a4ec5015da3b3e90248ab1d910883ef7
     }
     public void SignUpSubmitButton(View view)
     {
