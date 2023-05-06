@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.text.style.BulletSpan;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,8 +36,7 @@ public class SignUpActivity extends AppCompatActivity{
     EditText numberField;
     EditText cnicField;
     Button SignupSubmit;
-    public static boolean signedUp = false;
-    public static  User user;
+    private Boolean passwordVisible = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,35 @@ public class SignUpActivity extends AppCompatActivity{
         nameField = findViewById(R.id.signupNameinput );
         emailField = findViewById(R.id.signupEmailinput);
         passwordField = findViewById(R.id.signupPasswordinput);
+        passwordField.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int Right =2;
+                if(event.getAction() == MotionEvent.ACTION_UP)
+                {
+                    if(event.getRawX() >= passwordField.getRight()-passwordField.getCompoundDrawables()[Right].getBounds().width())
+                    {
+                        int selection = passwordField.getSelectionEnd();
+                        if(passwordVisible)
+                        {
+                            passwordField.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_visible_foreground,0);
+                            passwordField.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                            passwordVisible = false;
+                        }
+                        else
+                        {
+                            passwordField.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,R.drawable.ic_visibleoff_foreground,0);
+                            passwordField.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                            passwordVisible = true;
+                        }
+                        passwordField.setSelection(selection);
+                        return true;
+                    }
+                }
+                return false;
+                }
+            });
+
         numberField = findViewById(R.id.signupPhoneNumber);
         cnicField = findViewById(R.id.signupCNIC);
         SignupSubmit = findViewById(R.id.btnSignUp);
