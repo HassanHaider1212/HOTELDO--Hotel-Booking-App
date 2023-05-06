@@ -23,7 +23,7 @@ import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-public class SignUpActivity extends AppCompatActivity implements FirebaseDataManager.DataObserver {
+public class SignUpActivity extends AppCompatActivity{
 
     FirebaseAuth mAuth;
     //FirebaseUser firebaseUser;
@@ -33,20 +33,8 @@ public class SignUpActivity extends AppCompatActivity implements FirebaseDataMan
     EditText numberField;
     EditText cnicField;
     Button SignupSubmit;
-    IDataManager dao;
     public static boolean signedUp = false;
     public static  User user;
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if(currentUser != null){
-//            startActivity(new Intent(getApplicationContext(),HomepageActivity.class));
-//            finish();
-//        }
-//
-//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,10 +46,6 @@ public class SignUpActivity extends AppCompatActivity implements FirebaseDataMan
         numberField = findViewById(R.id.signupPhoneNumber);
         cnicField = findViewById(R.id.signupCNIC);
         SignupSubmit = findViewById(R.id.btnSignUp);
-
-        dao = new FirebaseDataManager(this);
-
-
     }
     public void SignUpSubmitButton(View view)
     {
@@ -101,53 +85,20 @@ public class SignUpActivity extends AppCompatActivity implements FirebaseDataMan
                             passwordField.setText("");
                             numberField.setText("");
                             cnicField.setText("");
-                            String id = mAuth.getCurrentUser().getUid();
-                            Hashtable<String, String> attribute = new Hashtable<>();
-                            attribute.put("id", id);
-                            attribute.put("name", name);
-                            attribute.put("number", number);
-                            attribute.put("email", email);
-                            attribute.put("cnic", cnic);
-                            dao.saveUser(attribute);
 
+                            User u = new User(name, cnic, number, email, password);
+                            String id = mAuth.getCurrentUser().getUid();
+                            u.save(id);
                             mAuth.signOut();
                             startActivity(new Intent(getApplicationContext(),LoginActivity.class));
 
                         } else {
-
-
                             Toast.makeText(SignUpActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
-
                         }
                     }
                 });
 
 
-
-    }
-
-    @Override
-    public void updateHotels(ArrayList<Hashtable<String, String>> loadedhotels) {
-
-    }
-
-    @Override
-    public void updateRooms(ArrayList<Hashtable<String, String>> loadedrooms) {
-
-    }
-
-    @Override
-    public void updateOrders(ArrayList<Hashtable<String, String>> loadedorders) {
-
-    }
-
-    @Override
-    public void updateFavourites(ArrayList<Hashtable<String, String>> loadedfavourites) {
-
-    }
-
-    @Override
-    public void updateUser(ArrayList<Hashtable<String, String>> data) {
 
     }
 }

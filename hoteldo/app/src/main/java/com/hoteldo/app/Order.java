@@ -23,8 +23,11 @@ public class Order implements Serializable {
     private String guestName;
     private float total;
 
+    private IDataManager dao;
+
 
     public Order(String userID, String hotelID, String roomID, Date arrivalDate, Date departureDate, String guestMail, String guestName) {
+        dao = new FirebaseDataManager();
         this.orderID = UUID.randomUUID().toString();
         this.userID = userID;
         this.hotelID = hotelID;
@@ -48,6 +51,7 @@ public class Order implements Serializable {
     }
 
     public Order() {
+        dao = new FirebaseDataManager();
         this.orderID = "";
         this.userID = "";
         this.hotelID = "";
@@ -76,7 +80,7 @@ public class Order implements Serializable {
         this.guestName = attributes.get("guestName");
         this.total = Float.parseFloat(attributes.get("total"));
     }
-    public Hashtable<String, String> save(){
+    public void save(){
         Hashtable<String, String> attributes = new Hashtable<>();
         attributes.put("orderID", orderID);
         attributes.put("hotelID", hotelID);
@@ -90,7 +94,7 @@ public class Order implements Serializable {
         attributes.put("arrivalDate",dateFormat.format(arrivalDate));
         attributes.put("departureDate",dateFormat.format(departureDate));
 
-        return attributes;
+        dao.saveOrder(attributes);
     }
 
     public String getUserID() {

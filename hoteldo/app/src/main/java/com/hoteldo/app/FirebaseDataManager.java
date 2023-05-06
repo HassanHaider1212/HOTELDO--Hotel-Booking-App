@@ -196,6 +196,12 @@ public class FirebaseDataManager implements IDataManager{
         }
     }
 
+    public FirebaseDataManager(){
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference();
+    }
+
     @Override
     public void saveOrder(Hashtable<String, String> attributes) {
         String id = attributes.get("orderID");
