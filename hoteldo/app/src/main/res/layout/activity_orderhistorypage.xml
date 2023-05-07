@@ -13,13 +13,14 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnDownloadOrderHistory"
             style="@style/btnSolidRounded_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="@dimen/_60pxv"
+            android:layout_height="@dimen/_60pxv"
+            android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="2dp"
-            android:hint="D"
+            android:drawableTop="@drawable/ic_download_foreground"
+            android:paddingBottom="4dp"
             app:layout_constraintBottom_toTopOf="@+id/linearHistoryPage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/txtOrderHistory"
@@ -32,10 +33,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
             android:layout_marginTop="@dimen/_38pxv"
+
             android:ellipsize="end"
             android:singleLine="true"
             android:text="Recent Orders"
-            android:textSize="30sp"
+            android:textSize="@dimen/_36sp"
             app:layout_constraintEnd_toStartOf="@+id/btnDownloadOrderHistory"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -56,7 +58,7 @@
                 android:id="@+id/orderhistory_recycler_view"
                 android:layout_width="@dimen/_390pxv"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_marginTop="@dimen/_15pxv"
                 android:layout_marginBottom="@dimen/_8pxv">
 
             </androidx.recyclerview.widget.RecyclerView>

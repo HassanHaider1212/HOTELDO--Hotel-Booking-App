@@ -21,6 +21,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
 
 public class OrderhistorypageActivity extends AppCompatActivity {
     private static ArrayList<Order> orders= new ArrayList<>();
@@ -44,6 +47,10 @@ public class OrderhistorypageActivity extends AppCompatActivity {
             if (o.getUserID().equals(uID)){
                 orders.add(o);
             }
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            orders.sort((o1, o2) -> o1.getPlacedOn().compareTo(o2.getPlacedOn()));
+            Collections.reverse(orders);
         }
         OrderAdapter adapter = new OrderAdapter(orders);
         recyclerView.setAdapter(adapter);

@@ -141,11 +141,12 @@ public class Order implements Serializable {
 
     public String getPlacedOnString(){
         try {
-
+            int date = placedOn.getDate();
             int Day = placedOn.getDay();
             int month = placedOn.getMonth();
             int hour = placedOn.getHours();
             int min = placedOn.getMinutes();
+            int year = placedOn.getYear() + 1900;
 
             String d = "";
             switch(Day){
@@ -193,7 +194,7 @@ public class Order implements Serializable {
                     m = "Dec";
             }
 
-            String time = d + ", " + m + " " + Integer.toString(hour) + ":" + Integer.toString(min);
+            String time = Integer.toString(date) + "/" + m + "/"+ Integer.toString(year)+  " " + d + " " + Integer.toString(hour) + ":" + Integer.toString(min);
 
 
             return time;

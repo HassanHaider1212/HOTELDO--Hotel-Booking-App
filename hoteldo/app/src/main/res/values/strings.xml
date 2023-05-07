@@ -47,6 +47,7 @@
     <string name="lbl_arrival_date">Arrival Date</string>
     <string name="spinner_prompt">Filters</string>
     <string-array name="spinner_items">
+        <item>Sort By</item>
         <item>Price: Ascending</item>
         <item>Price: Descending</item>
         <item>Ratings: Ascending</item>
