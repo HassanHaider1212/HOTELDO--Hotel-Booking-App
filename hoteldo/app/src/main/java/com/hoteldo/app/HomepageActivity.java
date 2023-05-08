@@ -174,24 +174,10 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
         //
         dao = new FirebaseDataManager(this);
 
-        // dummy data for testing
-        //hotels.add(new Hotel("Hotel One", "Faisal Town,Lahore Pakistan", "hotelone@test.com", 4.5f, null));
-        //hotels.add(new Hotel("Hotel Two", "DHA Phase V,Lahore Pakistan", "hoteltwo@test.com", 4.8f, null));
-
         for (Hotel h:hotels) {
             filteredHotels.add(h);
             adapter.notifyDataSetChanged();
         }
-        //favouriteHotels.add(new FavouriteHotel("zainwajid33@gmail.com", hotels.get(0).getHotelID()));
-
-        //rooms.add(new Room(hotels.get(0).getHotelID(), 12.99f, "Economy Suite", true));
-        //rooms.add(new Room(hotels.get(0).getHotelID(), 22.99f, "Luxury Suite", true));
-        //rooms.add(new Room(hotels.get(1).getHotelID(), 15.99f, "Gold Suite", true));
-        //rooms.add(new Room(hotels.get(1).getHotelID(), 30.99f, "Platinum Suite", true));
-
-        //orders.add(new Order("Imran",hotels.get(0).getHotelID(),rooms.get(0).getRoomID(),new Date(),new Date(),"aliRaza","AliRaza"));
-        //orders.add(new Order("Imran",hotels.get(1).getHotelID(),rooms.get(1).getRoomID(),new Date(),new Date(),"aliRaza","AliRaza"));
-
 
         adapter.notifyDataSetChanged();
     }
