@@ -230,14 +230,9 @@ public class HomepageActivity extends AppCompatActivity implements HotelAdapter.
             if (!isHotelLoaded(h)){
                 hotels.add(h);
                 filteredHotels.add(h);
-                adapter.notifyDataSetChanged();
             }
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            filteredHotels.sort((o1, o2) -> Float.compare(getHotelPrice(o1), getHotelPrice(o2)));
-            adapter.notifyDataSetChanged();
-        }
-        //Toast.makeText(getApplicationContext(), "Hotels Loaded!", Toast.LENGTH_LONG).show();
+        adapter.notifyDataSetChanged();
     }
 
     @Override
