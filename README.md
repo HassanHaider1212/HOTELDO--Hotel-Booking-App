@@ -1,6 +1,6 @@
-# HotelDo- Hotel Booking App
+**HotelDo- Hotel Booking App:**<br>
 The HotelDo is a mobile application designed to facilitate the process of booking accommodations for travelers. With a user-friendly interface and a vast database of hotels worldwide<br>
-**Functional requirements and Architectural analysis**<br>
+**Functional requirements and Architectural analysis:**<br>
 Sign Up,
 Log In,
 Favorites list,
